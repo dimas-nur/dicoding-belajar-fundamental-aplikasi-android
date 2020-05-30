@@ -7,7 +7,7 @@ import dagger.android.DaggerApplication
 // Base Application for implements dagger application
 class BaseApplication : DaggerApplication() {
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> =
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication>? =
         DaggerAppComponent.builder().application(this).build()
 
 }

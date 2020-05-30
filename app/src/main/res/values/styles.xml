@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Text View -->
+    <style name="main_tv_actionBar" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/segoeui_semibold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
 </resources>
