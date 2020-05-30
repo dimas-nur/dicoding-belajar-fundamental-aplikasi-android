@@ -1,9 +1,11 @@
-package com.dnar.dicodingsubmissionbfaa
+package com.dnar.dicodingsubmissionbfaa.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dnar.dicodingsubmissionbfaa.R
+import dagger.android.support.DaggerAppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
