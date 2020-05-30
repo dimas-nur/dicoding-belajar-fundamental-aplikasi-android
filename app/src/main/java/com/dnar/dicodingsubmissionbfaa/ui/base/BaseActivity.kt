@@ -1,20 +1,17 @@
 package com.dnar.dicodingsubmissionbfaa.ui.base
 
 import android.os.Bundle
+import android.view.Window
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dimasnur.daggerpractice.di.viewmodel.ViewModelProviderFactory
-import com.dnar.dicodingsubmissionbfaa.databinding.ActivityMainBinding
-import com.dnar.dicodingsubmissionbfaa.databinding.ActivityMainBinding.inflate
-import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
-import com.dnar.dicodingsubmissionbfaa.ui.main.MainViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-abstract class BaseActivity<T: ViewDataBinding, VM: ViewModel> : DaggerAppCompatActivity() {
+// Base Activity for implements DaggerAppCompatActivity; Keyword : Base
+abstract class BaseActivity<T : ViewDataBinding, VM : ViewModel> : DaggerAppCompatActivity() {
 
     @Inject
     lateinit var factory: ViewModelProviderFactory
@@ -27,6 +24,8 @@ abstract class BaseActivity<T: ViewDataBinding, VM: ViewModel> : DaggerAppCompat
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
 
         // Set View Binding & View Model
         mViewBinding = DataBindingUtil.setContentView(this, getLayoutId)

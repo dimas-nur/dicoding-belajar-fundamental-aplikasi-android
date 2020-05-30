@@ -15,6 +15,7 @@ import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
+// Base Fragment for implements DaggerFragment; Keyword : Base
 abstract class BaseFragment<T : ViewDataBinding, VM : ViewModel> : DaggerFragment() {
 
     @Inject

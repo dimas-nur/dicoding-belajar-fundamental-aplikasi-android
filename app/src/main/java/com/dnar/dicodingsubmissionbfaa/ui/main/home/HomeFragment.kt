@@ -1,19 +1,21 @@
 package com.dnar.dicodingsubmissionbfaa.ui.main.home
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.MutableLiveData
-
 import com.dnar.dicodingsubmissionbfaa.R
+import com.dnar.dicodingsubmissionbfaa.data.adapter.UserAdapter
+import com.dnar.dicodingsubmissionbfaa.data.model.User
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentHomeBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 
 // Home fragment implements dagger fragment
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), UserAdapter.Listener {
+
+    private val TAG: String = "HomeFragment"
+
+    private var rvUserAdapter = UserAdapter(this)
 
     override var getLayoutId: Int = R.layout.fragment_home
     override var getViewModel: Class<HomeViewModel> = HomeViewModel::class.java
@@ -22,6 +24,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mViewBinding.apply {
+            homeRvUser.adapter = rvUserAdapter
+        }
 
+        mViewModel.apply {
+            Log.d(TAG, "data : ${getUserList()}")
+            rvUserAdapter.setList(getUserList())
+        }
+    }
+
+    override fun onUserClickListener(view: View, data: User) {
+        //
     }
 }

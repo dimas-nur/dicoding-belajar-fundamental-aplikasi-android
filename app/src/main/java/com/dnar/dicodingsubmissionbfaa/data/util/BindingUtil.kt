@@ -3,7 +3,8 @@ package com.dnar.dicodingsubmissionbfaa.data.util
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 
-@BindingAdapter(("imageDrawable"))
-fun loadImageDrawable(view: ImageView, id: Int?) {
-    id?.let { view.loadEclipseImage(id) }
+// Util for binding into layout; Keyword : Util
+@BindingAdapter(("imageName"))
+fun loadImageDrawable(view: ImageView, name: String?) {
+    name?.let { view.loadEclipseImage(name) }
 }

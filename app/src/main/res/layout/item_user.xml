@@ -16,7 +16,7 @@
 
         <ImageView
             android:id="@+id/item_user_img_profile"
-            imageDrawable="@{user.avatar}"
+            imageName="@{user.avatar}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="fitCenter"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="@{user.followers + `Pengikut`}"
+            android:text="@{user.follower + ` Pengikut`}"
             app:layout_constraintStart_toStartOf="@+id/item_user_tv_company"
             app:layout_constraintTop_toBottomOf="@+id/item_user_tv_company" />
     </androidx.constraintlayout.widget.ConstraintLayout>

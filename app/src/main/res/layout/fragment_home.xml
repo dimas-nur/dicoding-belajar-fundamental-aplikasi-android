@@ -10,6 +10,7 @@
         android:paddingVertical="20dp">
 
         <androidx.recyclerview.widget.RecyclerView
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:id="@+id/home_rv_user"
             android:layout_width="0dp"
             android:layout_height="0dp"
