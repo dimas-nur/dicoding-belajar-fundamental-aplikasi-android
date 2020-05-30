@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.dnar.dicodingsubmissionbfaa.data.model.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/item_user_img_profile"
+            imageDrawable="@{user.avatar}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/item_user_tv_followers"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/item_user_tv_name" />
+
+        <TextView
+            android:id="@+id/item_user_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{user.name}"
+            app:layout_constraintStart_toEndOf="@+id/item_user_img_profile"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_user_tv_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@{user.company}"
+            app:layout_constraintStart_toStartOf="@+id/item_user_tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/item_user_tv_name" />
+
+        <TextView
+            android:id="@+id/item_user_tv_followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@{user.followers + `Pengikut`}"
+            app:layout_constraintStart_toStartOf="@+id/item_user_tv_company"
+            app:layout_constraintTop_toBottomOf="@+id/item_user_tv_company" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
