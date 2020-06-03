@@ -15,4 +15,53 @@
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
+    <style name="home_tv_tittle">
+        <item name="android:fontFamily">@font/segoeui_semibold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorGreyPrimary</item>
+    </style>
+
+    <style name="home_tv_subTittle">
+        <item name="android:fontFamily">@font/segoeui_semibold</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/colorGreySoft1</item>
+    </style>
+
+    <style name="home_tv_content">
+        <item name="android:fontFamily">@font/segoeui</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorGreySoft2</item>
+    </style>
+
+    <style name="userDetail_tv_tittle">
+        <item name="android:fontFamily">@font/segoeui_semibold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorGreyPrimary</item>
+    </style>
+
+    <style name="userDetail_tv_subTittle">
+        <item name="android:fontFamily">@font/segoeui</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorGreySoft1</item>
+    </style>
+
+    <style name="userDetail_tv_contentNumber">
+        <item name="android:fontFamily">@font/segoeui_bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorGreyPrimary</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="userDetail_tv_contentNumberTittle">
+        <item name="android:fontFamily">@font/segoeui</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorGreySoft1</item>
+    </style>
+
+    <style name="userDetail_tv_contentItem">
+        <item name="android:fontFamily">@font/segoeui</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorGreySoft1</item>
+    </style>
+
 </resources>

@@ -12,6 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:padding="10dp">
 
         <ImageView
@@ -20,37 +21,57 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="@+id/item_user_tv_followers"
+            app:layout_constraintBottom_toBottomOf="@+id/itemUser_tv_follower"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/item_user_tv_name" />
+            app:layout_constraintTop_toTopOf="@+id/itemUser_tv_name" />
 
         <TextView
-            android:id="@+id/item_user_tv_name"
-            android:layout_width="wrap_content"
+            android:id="@+id/itemUser_tv_name"
+            style="@style/home_tv_tittle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="@{user.name}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/item_user_img_profile"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/item_user_tv_company"
-            android:layout_width="wrap_content"
+            android:id="@+id/itemUser_tv_company"
+            style="@style/home_tv_subTittle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="@{user.company}"
-            app:layout_constraintStart_toStartOf="@+id/item_user_tv_name"
-            app:layout_constraintTop_toBottomOf="@+id/item_user_tv_name" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/itemUser_tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_name" />
 
         <TextView
-            android:id="@+id/item_user_tv_followers"
-            android:layout_width="wrap_content"
+            android:id="@+id/itemUser_tv_follower"
+            style="@style/home_tv_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@{user.follower + ` Pengikut`}"
-            app:layout_constraintStart_toStartOf="@+id/item_user_tv_company"
-            app:layout_constraintTop_toBottomOf="@+id/item_user_tv_company" />
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{user.location}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/itemUser_tv_company"
+            app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_company" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorGreySoft2"
+            app:layout_constraintEnd_toEndOf="@+id/itemUser_tv_follower"
+            app:layout_constraintStart_toStartOf="@+id/itemUser_tv_follower"
+            app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_follower" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

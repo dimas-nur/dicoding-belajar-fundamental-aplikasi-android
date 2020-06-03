@@ -1,33 +1,25 @@
 package com.dnar.dicodingsubmissionbfaa.ui.main.user_detail
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-
+import androidx.lifecycle.MutableLiveData
 import com.dnar.dicodingsubmissionbfaa.R
+import com.dnar.dicodingsubmissionbfaa.databinding.FragmentUserDetailBinding
+import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 
-class UserDetailFragment : Fragment() {
+class UserDetailFragment : BaseFragment<FragmentUserDetailBinding, UserDetailViewModel>() {
 
-    companion object {
-        fun newInstance() = UserDetailFragment()
+    override var getLayoutId: Int = R.layout.fragment_user_detail
+    override var getViewModel: Class<UserDetailViewModel> = UserDetailViewModel::class.java
+    override var title: MutableLiveData<String> = MutableLiveData("Profile")
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        mViewBinding.apply {
+            arguments?.let {
+                user = UserDetailFragmentArgs.fromBundle(it).user
+            }
+        }
     }
-
-    private lateinit var viewModel: UserDetailViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_user_detail, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(UserDetailViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }

@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.adapter.UserAdapter
 import com.dnar.dicodingsubmissionbfaa.data.model.User
+import com.dnar.dicodingsubmissionbfaa.data.util.changeNavigation
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentHomeBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 
@@ -25,7 +26,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), UserAda
         super.onViewCreated(view, savedInstanceState)
 
         mViewBinding.apply {
-            homeRvUser.adapter = rvUserAdapter
+            homeRvUser.apply {
+                adapter = rvUserAdapter
+            }
         }
 
         mViewModel.apply {
@@ -35,6 +38,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), UserAda
     }
 
     override fun onUserClickListener(view: View, data: User) {
-        //
+        val action = HomeFragmentDirections.actionHomeFragmentToUserDetailFragment(data)
+        view.changeNavigation(action)
     }
 }
