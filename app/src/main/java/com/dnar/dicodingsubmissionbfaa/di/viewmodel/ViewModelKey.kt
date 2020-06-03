@@ -1,4 +1,4 @@
-package com.dimasnur.daggerpractice.di.viewmodel
+package com.dnar.dicodingsubmissionbfaa.di.viewmodel
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

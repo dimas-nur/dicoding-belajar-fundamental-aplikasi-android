@@ -1,7 +1,7 @@
 package com.dnar.dicodingsubmissionbfaa.di.ui.main
 
 import androidx.lifecycle.ViewModel
-import com.dimasnur.daggerpractice.di.viewmodel.ViewModelKey
+import com.dnar.dicodingsubmissionbfaa.di.viewmodel.ViewModelKey
 import com.dnar.dicodingsubmissionbfaa.ui.main.MainViewModel
 import com.dnar.dicodingsubmissionbfaa.ui.main.home.HomeViewModel
 import com.dnar.dicodingsubmissionbfaa.ui.main.user_detail.UserDetailViewModel

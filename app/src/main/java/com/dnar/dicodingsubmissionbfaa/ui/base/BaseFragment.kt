@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dimasnur.daggerpractice.di.viewmodel.ViewModelProviderFactory
+import com.dnar.dicodingsubmissionbfaa.di.viewmodel.ViewModelProviderFactory
 import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -43,6 +43,6 @@ abstract class BaseFragment<T : ViewDataBinding, VM : ViewModel> : DaggerFragmen
         return mViewBinding.root
     }
 
-    fun setToolbar(tittle: String) = (activity as MainActivity).changeToolbarTitle(tittle)
+    private fun setToolbar(tittle: String) = (activity as MainActivity).changeToolbarTitle(tittle)
 
 }
