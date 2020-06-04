@@ -1,7 +1,6 @@
 package com.dnar.dicodingsubmissionbfaa.ui.main.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import com.dnar.dicodingsubmissionbfaa.R
@@ -29,11 +28,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(), UserAda
             homeRvUser.apply {
                 adapter = rvUserAdapter
             }
-        }
-
-        mViewModel.apply {
-            Log.d(TAG, "data : ${getUserList()}")
-            rvUserAdapter.setList(getUserList())
         }
     }
 
