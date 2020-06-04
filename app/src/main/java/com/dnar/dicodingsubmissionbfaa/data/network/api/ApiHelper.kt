@@ -6,6 +6,7 @@ import com.dnar.dicodingsubmissionbfaa.data.model.response.SearchResponse
 import com.dnar.dicodingsubmissionbfaa.data.network.setting.BasicInterceptor
 import com.dnar.dicodingsubmissionbfaa.data.util.ACCESS_TOKEN
 import com.dnar.dicodingsubmissionbfaa.data.util.BASE_URL
+import io.reactivex.Observable
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -42,8 +43,8 @@ interface ApiHelper {
     /* --- User --- */
     @GET("search/users?q={username}")
     fun getSearchUser(
-        @Path("username") username: String
-    ): Observer<SearchResponse>
+        @Path("username") keyword: String
+    ): Observable<SearchResponse>
 
     @GET("users/{username}")
     fun getUser(
@@ -53,10 +54,10 @@ interface ApiHelper {
     @GET("users/{username}/followers")
     fun getUserFollowers(
         @Path("username") username: String
-    ): Observer<List<User>>
+    ): Observable<List<User>>
 
     @GET("users/{username}/following")
     fun getUserFollowing(
         @Path("username") username: String
-    ): Observer<List<User>>
+    ): Observable<List<User>>
 }

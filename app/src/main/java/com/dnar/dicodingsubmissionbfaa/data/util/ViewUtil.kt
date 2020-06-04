@@ -12,7 +12,7 @@ import com.dnar.dicodingsubmissionbfaa.R
 // Util for view; Keyword : Util
 
 /* --- Image View --- */
-fun ImageView.loadEclipseImage(name: String?) {
+fun ImageView.loadEclipseImage(url: String?) {
     val option = RequestOptions()
         .error(R.drawable.ic_launcher_background)
         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
@@ -20,9 +20,7 @@ fun ImageView.loadEclipseImage(name: String?) {
 
     Glide.with(context)
         .setDefaultRequestOptions(option)
-        .load(
-            resources.getIdentifier(name, "drawable", context.packageName)
-        )
+        .load(url)
         .into(this)
 }
 
