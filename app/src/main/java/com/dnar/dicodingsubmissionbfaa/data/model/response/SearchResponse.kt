@@ -1,10 +1,10 @@
 package com.dnar.dicodingsubmissionbfaa.data.model.response
 
-import com.dnar.dicodingsubmissionbfaa.data.model.User
+import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
 
 // Data Class SearchResponse; Keyword : DataClass
 data class SearchResponse(
     val incomplete_results: Boolean,
-    val items: List<User>,
+    val items: List<UserSearch>,
     val total_count: Int
 )

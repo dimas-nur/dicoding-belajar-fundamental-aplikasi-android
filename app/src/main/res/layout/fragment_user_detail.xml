@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="com.dnar.dicodingsubmissionbfaa.data.model.User" />
+            type="com.dnar.dicodingsubmissionbfaa.data.model.UserDetail" />
     </data>
 
     <LinearLayout
@@ -21,7 +21,7 @@
 
         <ImageView
             android:id="@+id/userDetail_img_profile"
-            imageName="@{user.avatar_url}"
+            imageUrl="a@{user.avatar_url}"
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:layout_marginTop="15dp" />
@@ -32,14 +32,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@{user.name}" />
+            android:text="a@{user.name}" />
 
         <TextView
             android:id="@+id/userDetail_tv_username"
             style="@style/userDetail_tv_subTittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.login}" />
+            android:text="a@{user.login}" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                 style="@style/userDetail_tv_contentNumber"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(user.followers)}"
+                android:text="a@{String.valueOf(user.followers)}"
                 app:layout_constraintEnd_toStartOf="@+id/userDetail_tv_following"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
                 style="@style/userDetail_tv_contentNumber"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(user.following)}"
+                android:text="a@{String.valueOf(user.following)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/userDetail_tv_follower"
@@ -115,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="@{user.company}"
+                android:text="a@{user.company}"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="@+id/imageView" />
 
@@ -134,7 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="@{user.location}"
+                android:text="a@{user.location}"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
@@ -153,7 +153,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="@{user.public_repos + ` Repository`}"
+                android:text="a@{user.public_repos + ` Repository`}"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="@+id/imageView3" />
         </androidx.constraintlayout.widget.ConstraintLayout>

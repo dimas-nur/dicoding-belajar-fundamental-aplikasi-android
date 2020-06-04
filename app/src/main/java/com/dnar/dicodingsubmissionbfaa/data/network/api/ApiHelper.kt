@@ -1,7 +1,7 @@
 package com.dnar.dicodingsubmissionbfaa.data.network.api
 
-import androidx.lifecycle.Observer
-import com.dnar.dicodingsubmissionbfaa.data.model.User
+import com.dnar.dicodingsubmissionbfaa.data.model.UserDetail
+import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
 import com.dnar.dicodingsubmissionbfaa.data.model.response.SearchResponse
 import com.dnar.dicodingsubmissionbfaa.data.network.setting.BasicInterceptor
 import com.dnar.dicodingsubmissionbfaa.data.util.ACCESS_TOKEN
@@ -15,7 +15,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
+
 
 // Api Interface; Keyword : Retrofit2
 interface ApiHelper {
@@ -41,23 +43,23 @@ interface ApiHelper {
     }
 
     /* --- User --- */
-    @GET("search/users?q={username}")
+    @GET("search/users")
     fun getSearchUser(
-        @Path("username") keyword: String
+        @Query("q") keyword: String
     ): Observable<SearchResponse>
 
     @GET("users/{username}")
     fun getUser(
         @Path("username") username: String
-    ): Single<User>
+    ): Single<UserDetail>
 
     @GET("users/{username}/followers")
     fun getUserFollowers(
         @Path("username") username: String
-    ): Observable<List<User>>
+    ): Observable<List<UserSearch>>
 
     @GET("users/{username}/following")
     fun getUserFollowing(
         @Path("username") username: String
-    ): Observable<List<User>>
+    ): Observable<List<UserSearch>>
 }

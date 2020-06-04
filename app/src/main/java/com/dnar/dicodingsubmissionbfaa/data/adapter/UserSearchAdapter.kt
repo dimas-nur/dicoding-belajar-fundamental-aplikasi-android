@@ -6,12 +6,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.dnar.dicodingsubmissionbfaa.R
-import com.dnar.dicodingsubmissionbfaa.data.model.User
+import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
 import com.dnar.dicodingsubmissionbfaa.databinding.ItemUserBinding
 
 // User Recycler View Adapter; Keyword : Adapter
-class UserAdapter(val listener: Listener) : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
-    private var list: List<User> = listOf()
+class UserSearchAdapter(private val listener: Listener) :
+    RecyclerView.Adapter<UserSearchAdapter.ViewHolder>() {
+
+    private var list: List<UserSearch> = listOf()
 
     inner class ViewHolder(val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -37,12 +39,12 @@ class UserAdapter(val listener: Listener) : RecyclerView.Adapter<UserAdapter.Vie
         }
     }
 
-    fun setList(list: List<User>) {
+    fun setList(list: List<UserSearch>) {
         this.list = list
         notifyDataSetChanged()
     }
 
     interface Listener {
-        fun onUserClickListener(view: View, data: User)
+        fun onUserClickListener(view: View, data: UserSearch)
     }
 }

@@ -3,7 +3,8 @@ package com.dnar.dicodingsubmissionbfaa.data.repositories
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
-import com.dnar.dicodingsubmissionbfaa.data.model.User
+import com.dnar.dicodingsubmissionbfaa.data.model.UserDetail
+import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
 import com.dnar.dicodingsubmissionbfaa.data.network.api.ApiHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -18,8 +19,8 @@ class UserDetailRepository @Inject constructor(
 
     private val compositeDisposable = CompositeDisposable()
 
-    fun getDetail(username: String): LiveData<Status<User>> {
-        val liveData = MutableLiveData<Status<User>>()
+    fun getDetail(username: String): LiveData<Status<UserDetail>> {
+        val liveData = MutableLiveData<Status<UserDetail>>()
 
         compositeDisposable.add(
             api.getUser(username)
@@ -42,8 +43,8 @@ class UserDetailRepository @Inject constructor(
         return liveData
     }
 
-    fun getFollowerUser(username: String): LiveData<Status<List<User>>> {
-        val liveData = MutableLiveData<Status<List<User>>>()
+    fun getFollowerUser(username: String): LiveData<Status<List<UserSearch>>> {
+        val liveData = MutableLiveData<Status<List<UserSearch>>>()
 
         compositeDisposable.add(
             api.getUserFollowers(username)
@@ -66,8 +67,8 @@ class UserDetailRepository @Inject constructor(
         return liveData
     }
 
-    fun getFollowingUser(username: String): LiveData<Status<List<User>>> {
-        val liveData = MutableLiveData<Status<List<User>>>()
+    fun getFollowingUser(username: String): LiveData<Status<List<UserSearch>>> {
+        val liveData = MutableLiveData<Status<List<UserSearch>>>()
 
         compositeDisposable.add(
             api.getUserFollowing(username)

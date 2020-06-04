@@ -18,7 +18,7 @@ class UserDetailFragment : BaseFragment<FragmentUserDetailBinding, UserDetailVie
 
         mViewBinding.apply {
             arguments?.let {
-                user = UserDetailFragmentArgs.fromBundle(it).user
+                // user = UserDetailFragmentArgs.fromBundle(it).user
             }
         }
     }

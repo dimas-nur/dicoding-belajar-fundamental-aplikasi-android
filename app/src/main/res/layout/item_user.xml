@@ -6,7 +6,7 @@
 
         <variable
             name="user"
-            type="com.dnar.dicodingsubmissionbfaa.data.model.User" />
+            type="com.dnar.dicodingsubmissionbfaa.data.model.UserSearch" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +17,7 @@
 
         <ImageView
             android:id="@+id/item_user_img_profile"
-            imageName="@{user.avatar_url}"
+            imageUrl="@{user.avatar_url}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="fitCenter"
@@ -34,7 +34,7 @@
             android:layout_marginStart="10dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="@{user.name}"
+            android:text="@{user.login}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/item_user_img_profile"
             app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +47,7 @@
             android:layout_marginTop="2dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="@{user.company}"
+            android:text="@{user.type}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/itemUser_tv_name"
             app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_name" />
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="@{user.location}"
+            android:text="@{user.type}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/itemUser_tv_company"
             app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_company" />

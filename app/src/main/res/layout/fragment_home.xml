@@ -8,6 +8,39 @@
         android:layout_height="match_parent"
         android:background="@color/colorWhiteSoft">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <EditText
+                android:id="@+id/home_et_search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/home_btn_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/home_btn_search"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_home_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_rv_user"
             android:layout_width="0dp"
@@ -19,7 +52,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             tools:listitem="@layout/item_user" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
