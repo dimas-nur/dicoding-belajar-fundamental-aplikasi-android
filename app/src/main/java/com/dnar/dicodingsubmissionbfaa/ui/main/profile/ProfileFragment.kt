@@ -21,8 +21,12 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
 
         mViewBinding.apply {
             arguments?.let {
-                val username = UserDetailFragmentArgs.fromBundle(it).username
+                val username = ProfileFragmentArgs.fromBundle(it).username
                 observeDetail(username)
+
+                profileViewPager.adapter =
+                    ProfileSectionsPagerAdapter(childFragmentManager, username)
+                profileTabLayout.setupWithViewPager(profileViewPager)
             }
         }
     }

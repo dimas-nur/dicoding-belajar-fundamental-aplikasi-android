@@ -5,6 +5,7 @@ import com.dnar.dicodingsubmissionbfaa.di.viewmodel.ViewModelKey
 import com.dnar.dicodingsubmissionbfaa.ui.main.MainViewModel
 import com.dnar.dicodingsubmissionbfaa.ui.main.home.HomeViewModel
 import com.dnar.dicodingsubmissionbfaa.ui.main.profile.ProfileViewModel
+import com.dnar.dicodingsubmissionbfaa.ui.main.profile.follow.ProfileFollowViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -27,4 +28,9 @@ abstract class MainViewModelModule {
     @IntoMap
     @ViewModelKey(ProfileViewModel::class)
     abstract fun bindProfileViewModel(profileViewModel: ProfileViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ProfileFollowViewModel::class)
+    abstract fun bindProfileFollowViewModel(profileFollowViewModel: ProfileFollowViewModel): ViewModel
 }

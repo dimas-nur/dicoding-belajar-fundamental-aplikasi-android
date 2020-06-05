@@ -6,6 +6,7 @@ import com.dnar.dicodingsubmissionbfaa.di.ui.main.home.HomeModule
 import com.dnar.dicodingsubmissionbfaa.di.ui.main.profile.ProfileModule
 import com.dnar.dicodingsubmissionbfaa.ui.main.home.HomeFragment
 import com.dnar.dicodingsubmissionbfaa.ui.main.profile.ProfileFragment
+import com.dnar.dicodingsubmissionbfaa.ui.main.profile.follow.ProfileFollowFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -28,4 +29,12 @@ abstract class MainActivityBuilderModule {
         ]
     )
     abstract fun contributeProfileFragment(): ProfileFragment
+
+    @ProfileScope
+    @ContributesAndroidInjector(
+        modules = [
+            ProfileModule::class
+        ]
+    )
+    abstract fun contributeProfileFollowFragment(): ProfileFollowFragment
 }
