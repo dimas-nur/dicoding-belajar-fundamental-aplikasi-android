@@ -27,7 +27,7 @@ class UserDetailRepository @Inject constructor(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
-                    onSuccess = {
+                    onNext = {
                         it?.let {
                             liveData.postValue(Status.success(it))
                             return@subscribeBy
@@ -43,7 +43,7 @@ class UserDetailRepository @Inject constructor(
         return liveData
     }
 
-    fun getFollowerUser(username: String): LiveData<Status<List<UserSearch>>> {
+    fun getFollowersUser(username: String): LiveData<Status<List<UserSearch>>> {
         val liveData = MutableLiveData<Status<List<UserSearch>>>()
 
         compositeDisposable.add(

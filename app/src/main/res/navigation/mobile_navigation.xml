@@ -20,7 +20,7 @@
         android:label="fragment_user_detail"
         tools:layout="@layout/fragment_user_detail" >
         <argument
-            android:name="user"
-            app:argType="com.dnar.dicodingsubmissionbfaa.data.model.UserSearch" />
+            android:name="username"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -51,7 +51,7 @@ interface ApiHelper {
     @GET("users/{username}")
     fun getUser(
         @Path("username") username: String
-    ): Single<UserDetail>
+    ): Observable<UserDetail>
 
     @GET("users/{username}/followers")
     fun getUserFollowers(

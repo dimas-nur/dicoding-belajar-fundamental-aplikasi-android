@@ -32,14 +32,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="a@{user.name}" />
+            android:text="@{user.name}" />
 
         <TextView
             android:id="@+id/userDetail_tv_username"
             style="@style/userDetail_tv_subTittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="a@{user.login}" />
+            android:text="@{user.login}" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
