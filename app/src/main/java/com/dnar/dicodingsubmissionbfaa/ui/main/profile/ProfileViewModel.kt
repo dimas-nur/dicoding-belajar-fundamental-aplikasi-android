@@ -1,11 +1,11 @@
-package com.dnar.dicodingsubmissionbfaa.ui.main.user_detail
+package com.dnar.dicodingsubmissionbfaa.ui.main.profile
 
 import androidx.lifecycle.ViewModel
-import com.dnar.dicodingsubmissionbfaa.data.repositories.UserDetailRepository
+import com.dnar.dicodingsubmissionbfaa.data.repositories.ProfileRepository
 import javax.inject.Inject
 
-class UserDetailViewModel @Inject constructor(
-    private val repository: UserDetailRepository
+class ProfileViewModel @Inject constructor(
+    private val repository: ProfileRepository
 ) : ViewModel() {
 
     fun getDetail(username: String) = repository.getDetail(username)

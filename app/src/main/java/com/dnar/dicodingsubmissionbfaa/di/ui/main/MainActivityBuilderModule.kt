@@ -1,11 +1,11 @@
 package com.dnar.dicodingsubmissionbfaa.di.ui.main
 
 import com.dnar.dicodingsubmissionbfaa.di.HomeScope
-import com.dnar.dicodingsubmissionbfaa.di.UserDetailScope
+import com.dnar.dicodingsubmissionbfaa.di.ProfileScope
 import com.dnar.dicodingsubmissionbfaa.di.ui.main.home.HomeModule
-import com.dnar.dicodingsubmissionbfaa.di.ui.main.user_detail.UserDetailModule
+import com.dnar.dicodingsubmissionbfaa.di.ui.main.profile.ProfileModule
 import com.dnar.dicodingsubmissionbfaa.ui.main.home.HomeFragment
-import com.dnar.dicodingsubmissionbfaa.ui.main.user_detail.UserDetailFragment
+import com.dnar.dicodingsubmissionbfaa.ui.main.profile.ProfileFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -21,11 +21,11 @@ abstract class MainActivityBuilderModule {
     )
     abstract fun contributeHomeFragment(): HomeFragment
 
-    @UserDetailScope
+    @ProfileScope
     @ContributesAndroidInjector(
         modules = [
-            UserDetailModule::class
+            ProfileModule::class
         ]
     )
-    abstract fun contributeUserDeatilFragment(): UserDetailFragment
+    abstract fun contributeProfileFragment(): ProfileFragment
 }

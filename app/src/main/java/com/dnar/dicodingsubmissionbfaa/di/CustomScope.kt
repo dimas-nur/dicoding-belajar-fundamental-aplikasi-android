@@ -11,4 +11,4 @@ annotation class HomeScope()
 @Scope
 @MustBeDocumented
 @Retention(AnnotationRetention.RUNTIME)
-annotation class UserDetailScope()
+annotation class ProfileScope()

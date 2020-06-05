@@ -1,4 +1,4 @@
-package com.dnar.dicodingsubmissionbfaa.ui.main.user_detail
+package com.dnar.dicodingsubmissionbfaa.ui.main.profile
 
 import android.os.Bundle
 import android.view.View
@@ -7,13 +7,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
-import com.dnar.dicodingsubmissionbfaa.databinding.FragmentUserDetailBinding
+import com.dnar.dicodingsubmissionbfaa.databinding.FragmentProfileBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 
-class UserDetailFragment : BaseFragment<FragmentUserDetailBinding, UserDetailViewModel>() {
+class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>() {
 
-    override var getLayoutId: Int = R.layout.fragment_user_detail
-    override var getViewModel: Class<UserDetailViewModel> = UserDetailViewModel::class.java
+    override var getLayoutId: Int = R.layout.fragment_profile
+    override var getViewModel: Class<ProfileViewModel> = ProfileViewModel::class.java
     override var title: MutableLiveData<String> = MutableLiveData("Profile")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,5 +48,4 @@ class UserDetailFragment : BaseFragment<FragmentUserDetailBinding, UserDetailVie
                 }
             })
     }
-
 }

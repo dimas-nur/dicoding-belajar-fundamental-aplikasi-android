@@ -16,9 +16,9 @@
     </fragment>
     <fragment
         android:id="@+id/userDetailFragment"
-        android:name="com.dnar.dicodingsubmissionbfaa.ui.main.user_detail.UserDetailFragment"
+        android:name="com.dnar.dicodingsubmissionbfaa.ui.main.profile.ProfileFragment"
         android:label="fragment_user_detail"
-        tools:layout="@layout/fragment_user_detail" >
+        tools:layout="@layout/fragment_profile" >
         <argument
             android:name="username"
             app:argType="string" />

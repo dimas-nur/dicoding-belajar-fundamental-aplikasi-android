@@ -12,8 +12,8 @@ import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-// User Detail Repository; Keyword : Repository
-class UserDetailRepository @Inject constructor(
+// Profile Repository; Keyword : Repository
+class ProfileRepository @Inject constructor(
     val api: ApiHelper
 ) {
 

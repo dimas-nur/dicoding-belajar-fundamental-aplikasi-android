@@ -17,8 +17,6 @@ import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
     UserSearchAdapter.Listener {
 
-    private val TAG: String = "HomeFragment"
-
     private var rvUserAdapter = UserSearchAdapter(this)
 
     override var getLayoutId: Int = R.layout.fragment_home

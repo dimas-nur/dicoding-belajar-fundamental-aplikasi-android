@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.dnar.dicodingsubmissionbfaa.di.viewmodel.ViewModelKey
 import com.dnar.dicodingsubmissionbfaa.ui.main.MainViewModel
 import com.dnar.dicodingsubmissionbfaa.ui.main.home.HomeViewModel
-import com.dnar.dicodingsubmissionbfaa.ui.main.user_detail.UserDetailViewModel
+import com.dnar.dicodingsubmissionbfaa.ui.main.profile.ProfileViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -25,6 +25,6 @@ abstract class MainViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(UserDetailViewModel::class)
-    abstract fun bindUserDetailViewModel(userDetailViewModel: UserDetailViewModel): ViewModel
+    @ViewModelKey(ProfileViewModel::class)
+    abstract fun bindProfileViewModel(profileViewModel: ProfileViewModel): ViewModel
 }
