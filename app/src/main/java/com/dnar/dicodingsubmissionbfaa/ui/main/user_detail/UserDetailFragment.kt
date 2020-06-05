@@ -16,6 +16,7 @@ class UserDetailFragment : BaseFragment<FragmentUserDetailBinding, UserDetailVie
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Configure View Binding
         mViewBinding.apply {
             arguments?.let {
                 user = UserDetailFragmentArgs.fromBundle(it).user

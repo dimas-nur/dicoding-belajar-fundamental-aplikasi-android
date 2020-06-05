@@ -33,9 +33,12 @@ abstract class BaseFragment<T : ViewDataBinding, VM : ViewModel> : DaggerFragmen
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        // Set View Binding & View Model
         mViewBinding = DataBindingUtil.inflate(inflater, getLayoutId, container, false)
         mViewModel = ViewModelProvider(this, factory)[getViewModel]
 
+        // Change tittle toolbar
         title.observe(viewLifecycleOwner, Observer {
             setToolbar(it)
         })
