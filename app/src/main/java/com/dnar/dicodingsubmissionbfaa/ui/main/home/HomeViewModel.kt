@@ -8,10 +8,11 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(val application: Application) : ViewModel() {
+class HomeViewModel @Inject constructor(private val application: Application) : ViewModel() {
 
+    // Func : Get list User Object from file json
     fun getUserList(): List<User> {
-        val jsonFileString = getDataFromJsonAsset(application, "githubuser.json")
+        val jsonFileString = getDataFromJsonAsset(application, "github_user.json")
         val jsonType = object : TypeToken<List<User>>() {}.type
 
         return Gson().fromJson(jsonFileString, jsonType)

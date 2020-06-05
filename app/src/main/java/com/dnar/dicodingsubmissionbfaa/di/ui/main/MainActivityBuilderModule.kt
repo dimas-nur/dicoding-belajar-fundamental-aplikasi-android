@@ -13,5 +13,5 @@ abstract class MainActivityBuilderModule {
     abstract fun contributeHomeFragment(): HomeFragment
 
     @ContributesAndroidInjector
-    abstract fun contributeUserDeatilFragment(): UserDetailFragment
+    abstract fun contributeUserDetailFragment(): UserDetailFragment
 }

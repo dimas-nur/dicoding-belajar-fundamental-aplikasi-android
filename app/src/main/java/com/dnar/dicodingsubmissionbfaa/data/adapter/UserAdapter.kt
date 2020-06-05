@@ -10,7 +10,7 @@ import com.dnar.dicodingsubmissionbfaa.data.model.User
 import com.dnar.dicodingsubmissionbfaa.databinding.ItemUserBinding
 
 // User Recycler View Adapter; Keyword : Adapter
-class UserAdapter(val listener: Listener) : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+class UserAdapter(private val listener: Listener) : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     private var list: List<User> = listOf()
 
     inner class ViewHolder(val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root)

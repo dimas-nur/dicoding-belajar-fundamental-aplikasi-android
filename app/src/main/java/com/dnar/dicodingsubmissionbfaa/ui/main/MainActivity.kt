@@ -21,6 +21,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         setUpNavigation()
     }
 
+    // Func : Setup ActionBar with Toolbar Layout
     private fun setToolbar() {
         mViewBinding.apply {
             setSupportActionBar(mainToolbar)
@@ -30,10 +31,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
+    // Func : Change toolbar tittle
     fun changeToolbarTitle(title: String) {
         mViewBinding.mainToolbarTittle.text = title
     }
 
+    // Func : Setup Navigation
     private fun setUpNavigation() {
         val navController = findNavController(R.id.main_nav_host_fragment)
         NavigationUI.setupActionBarWithNavController(this, navController)
