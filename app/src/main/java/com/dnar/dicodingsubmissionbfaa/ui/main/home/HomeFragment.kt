@@ -17,7 +17,7 @@ import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
     UserSearchAdapter.Listener {
 
-    private var rvUserAdapter = UserSearchAdapter(this)
+    private var rvUserSearchAdapter = UserSearchAdapter(this)
 
     override var getLayoutId: Int = R.layout.fragment_home
     override var getViewModel: Class<HomeViewModel> = HomeViewModel::class.java
@@ -28,7 +28,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
 
         mViewBinding.apply {
             homeRvUser.apply {
-                adapter = rvUserAdapter
+                adapter = rvUserSearchAdapter
             }
 
             homeBtnSearch.setOnClickListener {
@@ -48,7 +48,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
                         Status.StatusType.SUCCESS -> {
                             it.data?.let { data ->
                                 if (data.total_count > 0) {
-                                    rvUserAdapter.setList(data.items)
+                                    rvUserSearchAdapter.setList(data.items)
                                 } else {
 
                                 }

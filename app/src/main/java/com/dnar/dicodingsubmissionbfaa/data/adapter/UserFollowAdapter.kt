@@ -1,7 +1,6 @@
 package com.dnar.dicodingsubmissionbfaa.data.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -9,10 +8,8 @@ import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
 import com.dnar.dicodingsubmissionbfaa.databinding.ItemUserBinding
 
-// UserSearch Recycler View Adapter; Keyword : Adapter
-class UserSearchAdapter(
-    private val listener: Listener
-) : RecyclerView.Adapter<UserSearchAdapter.ViewHolder>() {
+// UserFollow Recycler View Adapter; Keyword : Adapter
+class UserFollowAdapter : RecyclerView.Adapter<UserFollowAdapter.ViewHolder>() {
 
     private var list: List<UserSearch> = listOf()
 
@@ -32,20 +29,11 @@ class UserSearchAdapter(
         list.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val data = list[position]
-
-        holder.binding.user = data
-        holder.itemView.setOnClickListener {
-            listener.onUserClickListener(it, data)
-        }
+        holder.binding.user = list[position]
     }
 
     fun setList(list: List<UserSearch>) {
         this.list = list
         notifyDataSetChanged()
-    }
-
-    interface Listener {
-        fun onUserClickListener(view: View, data: UserSearch)
     }
 }
