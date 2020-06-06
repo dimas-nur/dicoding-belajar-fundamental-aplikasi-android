@@ -12,26 +12,27 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:padding="10dp">
+        android:paddingTop="12dp">
 
         <ImageView
             android:id="@+id/item_user_img_profile"
             imageUrl="@{user.avatar_url}"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginBottom="12dp"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="@+id/itemUser_tv_follower"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/itemUser_tv_name" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/itemUser_tv_name"
             style="@style/home_tv_tittle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="3dp"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@{user.login}"
@@ -44,7 +45,6 @@
             style="@style/home_tv_subTittle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@{user.type}"
@@ -53,25 +53,14 @@
             app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_name" />
 
         <TextView
-            android:id="@+id/itemUser_tv_follower"
-            style="@style/home_tv_content"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:text="@{user.type}"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorGreySoft3"
+            app:layout_constraintEnd_toEndOf="@+id/itemUser_tv_company"
             app:layout_constraintStart_toStartOf="@+id/itemUser_tv_company"
             app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_company" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorGreySoft2"
-            app:layout_constraintEnd_toEndOf="@+id/itemUser_tv_follower"
-            app:layout_constraintStart_toStartOf="@+id/itemUser_tv_follower"
-            app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_follower" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

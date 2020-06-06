@@ -17,12 +17,12 @@
 
     <style name="home_tv_tittle">
         <item name="android:fontFamily">@font/segoeui_semibold</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/colorGreyPrimary</item>
     </style>
 
     <style name="home_tv_subTittle">
-        <item name="android:fontFamily">@font/segoeui_semibold</item>
+        <item name="android:fontFamily">@font/segoeui</item>
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/colorGreySoft1</item>
     </style>
@@ -61,6 +61,18 @@
     <style name="userDetail_tv_contentItem">
         <item name="android:fontFamily">@font/segoeui</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorGreySoft1</item>
+    </style>
+
+    <style name="incudeHome_tv_tittle">
+        <item name="android:fontFamily">@font/segoeui_semibold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorGreyPrimary</item>
+    </style>
+
+    <style name="incudeHome_tv_subTittle">
+        <item name="android:fontFamily">@font/segoeui</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/colorGreySoft1</item>
     </style>
 
