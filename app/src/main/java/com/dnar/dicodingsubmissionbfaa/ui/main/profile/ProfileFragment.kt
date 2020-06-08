@@ -35,7 +35,11 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
                 observeDetail(username)
 
                 profileViewPager.adapter =
-                    ProfileSectionsPagerAdapter(childFragmentManager, username)
+                    ProfileSectionsPagerAdapter(
+                        childFragmentManager,
+                        this@ProfileFragment,
+                        username
+                    )
                 profileTabLayout.setupWithViewPager(profileViewPager)
             }
 

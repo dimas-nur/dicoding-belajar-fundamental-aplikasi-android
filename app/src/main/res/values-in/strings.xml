@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Dicoding Submission BFAA</string>
+
+    <!-- Home Fragment Resource -->
+    <string name="home_search_user">Cari Pengguna</string>
+    <string name="home_search">Cari</string>
+    <string name="home_language_settings">Ubah Bahasa</string>
+
+    <!-- Profile Fragment Resource -->
+    <string name="profile_follower">Pengikut</string>
+    <string name="profile_following">Mengikuti</string>
+    <string name="profile_profile">Profil</string>
+
+    <!-- Placeholder Fragment Resource -->
+    <string name="placeholder_waiting_recent_tittle">Menunggu pencarian!</string>
+    <string name="placeholder_waiting_recent_message">Hasil pencarian akan dimuat di sini</string>
+    <string name="placeholder_not_found_tittle">Tidak ada hasil pencarian!</string>
+    <string name="placeholder_not_found_message">Kami tidak dapat menemukan hasil pencarian</string>
+    <string name="placeholder_error_tittle">Oops...</string>
+    <string name="placeholder_error_message">Ada yang salah, silakan coba lagi nanti</string>
+    <string name="placeholder_not_found_followers_message">Pengguna tidak memiliki pengikut</string>
+    <string name="placeholder_not_found_following_message">Pengguna tidak mengikuti siapapun</string>
+
+</resources>

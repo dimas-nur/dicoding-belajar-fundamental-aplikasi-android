@@ -57,36 +57,36 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                     // View All when data is error load
                     show = true
                     image = R.drawable.il_home_search_error
-                    tittle = R.string.home_error_tittle
-                    message = R.string.home_error_message
+                    tittle = R.string.placeholder_error_tittle
+                    message = R.string.placeholder_error_message
                 }
                 3 -> {
                     // View Home when waiting to search
                     show = true
                     image = R.drawable.il_home_search
-                    tittle = R.string.home_waiting_recent_tittle
-                    message = R.string.home_waiting_recent_message
+                    tittle = R.string.placeholder_waiting_recent_tittle
+                    message = R.string.placeholder_waiting_recent_message
                 }
                 4 -> {
                     // View Home when data user is not found
                     show = true
                     image = R.drawable.il_home_search_not_found
-                    tittle = R.string.home_not_found_tittle
-                    message = R.string.home_not_found_message
+                    tittle = R.string.placeholder_error_tittle
+                    message = R.string.placeholder_not_found_message
                 }
                 5 -> {
                     // View Profile when data followers is null
                     show = true
                     image = R.drawable.il_home_search_not_found
-                    tittle = R.string.profileFollowers_emptyFollowers_tittle
-                    message = R.string.profileFollowers_emptyFollowers_message
+                    tittle = R.string.placeholder_error_tittle
+                    message = R.string.placeholder_not_found_followers_message
                 }
                 6 -> {
                     // View Profile when data following is null
                     show = true
                     image = R.drawable.il_home_search_not_found
-                    tittle = R.string.profileFollowing_emptyFollowing_tittle
-                    message = R.string.profileFollowing_emptyFollowing_message
+                    tittle = R.string.placeholder_error_tittle
+                    message = R.string.placeholder_not_found_following_message
                 }
             }
         }
