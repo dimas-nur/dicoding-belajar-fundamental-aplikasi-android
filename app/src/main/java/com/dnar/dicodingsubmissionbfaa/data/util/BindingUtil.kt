@@ -10,3 +10,8 @@ import androidx.databinding.BindingAdapter
 fun loadImageUrl(view: ImageView, url: String?) {
     url?.let { view.loadEclipseImage(url) }
 }
+
+@BindingAdapter(("drawableId"))
+fun loadImageId(view: ImageView, id: Int?) {
+    id?.let { view.loadImage(id) }
+}

@@ -2,17 +2,21 @@ package com.dnar.dicodingsubmissionbfaa.ui.main.profile
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
 import com.dnar.dicodingsubmissionbfaa.data.util.hide
 import com.dnar.dicodingsubmissionbfaa.data.util.show
+import com.dnar.dicodingsubmissionbfaa.data.util.showDialogWarning
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentProfileBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
+import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>() {
+
+    private lateinit var mDialog: SweetAlertDialog
 
     override var getLayoutId: Int = R.layout.fragment_profile
     override var getViewModel: Class<ProfileViewModel> = ProfileViewModel::class.java
@@ -20,6 +24,10 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setContent(1)
+
+        mDialog = (activity as MainActivity).mDialog
 
         mViewBinding.apply {
             arguments?.let {
@@ -46,17 +54,20 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
                     it?.let { status ->
                         when (status.status) {
                             Status.StatusType.LOADING -> {
-
                             }
                             Status.StatusType.SUCCESS -> {
+                                profileProgressBar.hide()
+
                                 it.data?.let { data ->
+                                    setContent(1)
                                     user = data
-                                    profileProgressBar.hide()
                                 }
                             }
                             Status.StatusType.ERROR -> {
-                                Toast.makeText(activity, status.message, Toast.LENGTH_SHORT)
-                                    .show()
+                                profileProgressBar.hide()
+
+                                showDialogWarning(mDialog, status.message ?: "Error", null)
+                                setContent(2)
                             }
                         }
                     }

@@ -3,9 +3,16 @@
 
 
     <string name="home_waiting_recent_tittle">Waiting to search!</string>
-    <string name="home_waiting_recent_content">Search results will appear here</string>
+    <string name="home_waiting_recent_message">Search results will appear here</string>
     <string name="home_not_found_tittle">No results found!</string>
-    <string name="home_not_found_content">We could not find search results</string>
+    <string name="home_not_found_message">We could not find search results</string>
+    <string name="home_error_tittle">Oops...</string>
+    <string name="home_error_message">something went wrong, please try again later</string>
+
+    <string name="profileFollowers_emptyFollowers_tittle">No results found!</string>
+    <string name="profileFollowers_emptyFollowers_message">User doesn\'t have followers users</string>
+    <string name="profileFollowing_emptyFollowing_tittle">No results found!</string>
+    <string name="profileFollowing_emptyFollowing_message">User doesn\'t have following users</string>
 
     <string name="profile_follower">Follower</string>
     <string name="profile_following">Following</string>

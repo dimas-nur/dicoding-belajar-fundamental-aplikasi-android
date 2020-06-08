@@ -99,6 +99,10 @@ dependencies {
     def swipeRefreshVersion = '1.0.0'
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshVersion"
 
+    // Sweet Alert
+    def sweetAlerthVersion = '1.6.2'
+    implementation "com.github.f0ris.sweetalert:library:$sweetAlerthVersion"
+
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

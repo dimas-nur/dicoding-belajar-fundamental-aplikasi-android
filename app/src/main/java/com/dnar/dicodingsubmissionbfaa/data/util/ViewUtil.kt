@@ -10,6 +10,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.dnar.dicodingsubmissionbfaa.R
 
+
 // Util for view; Keyword : Util
 
 /* --- All --- */
@@ -24,6 +25,10 @@ fun View.hide() {
 
 
 /* --- Image View --- */
+fun ImageView.loadImage(id: Int?) {
+    id?.let { this.setImageResource(it) }
+}
+
 fun ImageView.loadEclipseImage(url: String?) {
     val loader = CircularProgressDrawable(context).apply {
         strokeWidth = 10f
@@ -37,15 +42,18 @@ fun ImageView.loadEclipseImage(url: String?) {
         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
         .circleCrop()
 
-    Glide.with(context)
-        .setDefaultRequestOptions(option)
-        .load(url)
-        .into(this)
+    try {
+        Glide.with(context)
+            .setDefaultRequestOptions(option)
+            .load(url)
+            .into(this)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
 }
 
 
 /* --- Navigation --- */
 fun View.changeNavigation(direction: NavDirections) {
     Navigation.findNavController(this).navigate(direction)
-
 }

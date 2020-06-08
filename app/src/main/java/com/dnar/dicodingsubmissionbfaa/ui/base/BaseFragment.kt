@@ -45,4 +45,8 @@ abstract class BaseFragment<T : ViewDataBinding, VM : ViewModel> : DaggerFragmen
 
     private fun setToolbar(tittle: String) = (activity as MainActivity).changeToolbarTitle(tittle)
 
+    fun setContent(condition: Int) {
+        (activity as MainActivity).setContent(condition, mViewBinding)
+    }
+
 }

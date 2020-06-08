@@ -9,12 +9,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="isNotFound"
-            type="Boolean" />
-
-        <variable
-            name="isLoaded"
-            type="Boolean" />
+            name="placeholder"
+            type="com.dnar.dicodingsubmissionbfaa.data.model.PlaceholderView" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -110,8 +106,8 @@
 
             <include
                 layout="@layout/include_home_illustration"
-                android:visibility="@{isLoaded? View.GONE : View.VISIBLE}"
-                bind:isNotFound="@{isNotFound}"
+                android:visibility="@{placeholder.show? View.VISIBLE : View.GONE}"
+                bind:data="@{placeholder}"
                 tools:visibility="gone" />
 
             <androidx.core.widget.NestedScrollView

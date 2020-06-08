@@ -3,23 +3,23 @@ package com.dnar.dicodingsubmissionbfaa.ui.main.home
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.adapter.UserSearchAdapter
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
 import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
-import com.dnar.dicodingsubmissionbfaa.data.util.changeNavigation
-import com.dnar.dicodingsubmissionbfaa.data.util.hide
-import com.dnar.dicodingsubmissionbfaa.data.util.hideKeyboard
-import com.dnar.dicodingsubmissionbfaa.data.util.show
+import com.dnar.dicodingsubmissionbfaa.data.util.*
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentHomeBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
+import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
 
 // Home fragment implements dagger fragment
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
     UserSearchAdapter.Listener {
+
+    private lateinit var mDialog: SweetAlertDialog
 
     private var rvUserSearchAdapter = UserSearchAdapter(this)
 
@@ -30,7 +30,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setContent(if (rvUserSearchAdapter.itemCount <= 0) 1 else 3)
+        setContent(if (rvUserSearchAdapter.itemCount <= 0) 3 else 1)
+
+        mDialog = (activity as MainActivity).mDialog
 
         mViewBinding.apply {
             homeRvUser.apply {
@@ -66,13 +68,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
         }
     }
 
-    private fun setContent(condition: Int) {
-        mViewBinding.apply {
-            isLoaded = condition == 3
-            isNotFound = condition == 2
-        }
-    }
-
     private fun observeUserSearch(keyword: String) {
         mViewModel.getUserSearch(keyword)
             .observe(viewLifecycleOwner, Observer {
@@ -85,19 +80,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
                                 mViewBinding.homeProgressBar.hide()
 
                                 if (data.total_count > 0) {
-                                    setContent(3)
+                                    setContent(1)
                                     rvUserSearchAdapter.setList(data.items)
                                 } else {
-                                    setContent(2)
+                                    setContent(4)
                                 }
                             }
                         }
                         Status.StatusType.ERROR -> {
                             mViewBinding.homeProgressBar.hide()
 
+                            showDialogWarning(mDialog, status.message ?: "Error", null)
                             setContent(2)
-                            Toast.makeText(activity, status.message, Toast.LENGTH_SHORT)
-                                .show()
                         }
                     }
                 }
