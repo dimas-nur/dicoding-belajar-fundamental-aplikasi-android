@@ -26,7 +26,6 @@ fun View.hide() {
 /* --- Image View --- */
 fun ImageView.loadEclipseImage(url: String?) {
     val loader = CircularProgressDrawable(context).apply {
-        setColorFilter(R.color.colorPrimary)
         strokeWidth = 10f
         centerRadius = 40f
         start()

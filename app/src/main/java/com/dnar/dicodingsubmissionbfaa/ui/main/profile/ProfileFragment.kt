@@ -7,6 +7,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
+import com.dnar.dicodingsubmissionbfaa.data.util.hide
+import com.dnar.dicodingsubmissionbfaa.data.util.show
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentProfileBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 
@@ -28,28 +30,37 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
                     ProfileSectionsPagerAdapter(childFragmentManager, username)
                 profileTabLayout.setupWithViewPager(profileViewPager)
             }
+
+            profileBtnBack.setOnClickListener {
+                activity?.onBackPressed()
+            }
         }
     }
 
     private fun observeDetail(username: String) {
-        mViewModel.getDetail(username)
-            .observe(viewLifecycleOwner, Observer {
-                it?.let { status ->
-                    when (status.status) {
-                        Status.StatusType.LOADING -> {
+        mViewBinding.apply {
+            profileProgressBar.show()
 
-                        }
-                        Status.StatusType.SUCCESS -> {
-                            it.data?.let { data ->
-                                mViewBinding.user = data
+            mViewModel.getDetail(username)
+                .observe(viewLifecycleOwner, Observer {
+                    it?.let { status ->
+                        when (status.status) {
+                            Status.StatusType.LOADING -> {
+
+                            }
+                            Status.StatusType.SUCCESS -> {
+                                it.data?.let { data ->
+                                    user = data
+                                    profileProgressBar.hide()
+                                }
+                            }
+                            Status.StatusType.ERROR -> {
+                                Toast.makeText(activity, status.message, Toast.LENGTH_SHORT)
+                                    .show()
                             }
                         }
-                        Status.StatusType.ERROR -> {
-                            Toast.makeText(activity, status.message, Toast.LENGTH_SHORT)
-                                .show()
-                        }
                     }
-                }
-            })
+                })
+        }
     }
 }

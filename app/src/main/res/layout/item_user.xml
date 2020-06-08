@@ -56,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_height="0.5dp"
             android:layout_marginTop="15dp"
-            android:background="@color/colorGreySoft3"
+            android:background="@color/colorGreySoft4"
             app:layout_constraintEnd_toEndOf="@+id/itemUser_tv_company"
             app:layout_constraintStart_toStartOf="@+id/itemUser_tv_company"
             app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_company" />

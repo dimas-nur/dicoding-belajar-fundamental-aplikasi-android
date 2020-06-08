@@ -44,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/home_search_user" />
+                    android:text="@string/profile_search_user" />
             </androidx.appcompat.widget.Toolbar>
 
             <RelativeLayout
@@ -67,7 +67,7 @@
                         android:layout_marginHorizontal="10dp"
                         android:background="@null"
                         android:fontFamily="@font/segoeui"
-                        android:hint="@string/home_search"
+                        android:hint="@string/profile_search"
                         android:imeOptions="actionSearch"
                         android:singleLine="true"
                         android:textColor="@android:color/white"
@@ -84,7 +84,7 @@
                         android:layout_height="0dp"
                         android:padding="11dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_search"
+                        android:src="@drawable/ic_all_search"
                         android:tint="@color/colorWhite"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintDimensionRatio="1:1"
@@ -117,6 +117,7 @@
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fillViewport="true"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <androidx.recyclerview.widget.RecyclerView

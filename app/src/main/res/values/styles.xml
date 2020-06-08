@@ -33,23 +33,29 @@
         <item name="android:textColor">@color/colorGreySoft2</item>
     </style>
 
-    <style name="userDetail_tv_tittle">
+    <style name="profile_tv_tittle">
         <item name="android:fontFamily">@font/segoeui_semibold</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/colorGreyPrimary</item>
     </style>
 
-    <style name="userDetail_tv_subTittle">
+    <style name="profile_tv_subTittle">
         <item name="android:fontFamily">@font/segoeui</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/colorGreySoft1</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorGreySoft2</item>
     </style>
 
-    <style name="userDetail_tv_contentNumber">
+    <style name="profile_tv_content">
+        <item name="android:fontFamily">@font/segoeui</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/colorGreySoft1</item>
+        <item name="android:drawablePadding">8dp</item>
+    </style>
+
+    <style name="profile_tv_link">
         <item name="android:fontFamily">@font/segoeui_bold</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/colorGreyPrimary</item>
-        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorBlueSoft</item>
     </style>
 
     <style name="userDetail_tv_contentNumberTittle">
@@ -74,6 +80,14 @@
         <item name="android:fontFamily">@font/segoeui</item>
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/colorGreySoft1</item>
+    </style>
+
+
+    <!-- Tab Layout -->
+    <style name="profile_tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/segoeui_semibold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
 </resources>

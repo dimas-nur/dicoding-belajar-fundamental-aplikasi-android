@@ -9,8 +9,6 @@ import com.dnar.dicodingsubmissionbfaa.ui.base.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
-    private val TAG: String = "MainActivity"
-
     override var getLayoutId: Int = R.layout.activity_main
     override var getViewModel: Class<MainViewModel> = MainViewModel::class.java
 
@@ -41,4 +39,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun onSupportNavigateUp(): Boolean =
         findNavController(R.id.main_nav_host_fragment).navigateUp()
+
+    override fun onBackPressed() {
+        supportFragmentManager.apply {
+            if (backStackEntryCount > 0)
+                popBackStack()
+            else
+                super.onBackPressed()
+        }
+    }
 }
