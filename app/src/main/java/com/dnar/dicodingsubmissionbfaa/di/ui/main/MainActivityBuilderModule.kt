@@ -1,7 +1,12 @@
 package com.dnar.dicodingsubmissionbfaa.di.ui.main
 
+import com.dnar.dicodingsubmissionbfaa.di.HomeScope
+import com.dnar.dicodingsubmissionbfaa.di.ProfileScope
+import com.dnar.dicodingsubmissionbfaa.di.ui.main.home.HomeModule
+import com.dnar.dicodingsubmissionbfaa.di.ui.main.profile.ProfileModule
 import com.dnar.dicodingsubmissionbfaa.ui.main.home.HomeFragment
-import com.dnar.dicodingsubmissionbfaa.ui.main.user_detail.UserDetailFragment
+import com.dnar.dicodingsubmissionbfaa.ui.main.profile.ProfileFragment
+import com.dnar.dicodingsubmissionbfaa.ui.main.profile.follow.ProfileFollowFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -9,9 +14,27 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class MainActivityBuilderModule {
 
-    @ContributesAndroidInjector
+    @HomeScope
+    @ContributesAndroidInjector(
+        modules = [
+            HomeModule::class
+        ]
+    )
     abstract fun contributeHomeFragment(): HomeFragment
 
-    @ContributesAndroidInjector
-    abstract fun contributeUserDetailFragment(): UserDetailFragment
+    @ProfileScope
+    @ContributesAndroidInjector(
+        modules = [
+            ProfileModule::class
+        ]
+    )
+    abstract fun contributeProfileFragment(): ProfileFragment
+
+    @ProfileScope
+    @ContributesAndroidInjector(
+        modules = [
+            ProfileModule::class
+        ]
+    )
+    abstract fun contributeProfileFollowFragment(): ProfileFollowFragment
 }

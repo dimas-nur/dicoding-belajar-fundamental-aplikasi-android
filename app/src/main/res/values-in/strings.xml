@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Dicoding Submission BFAA</string>
+
+    <!-- Splash Fragment Resource -->
+    <string name="splash_copyright">Copyright © 2020 by Dimas Nur Alif R</string>
+
+    <string name="splash_desc_image_dicoding">Gambar Dicoding</string>
+
+
+    <!-- Home Fragment Resource -->
+    <string name="home_search_user">Cari Pengguna</string>
+    <string name="home_search">Cari</string>
+    <string name="home_language_settings">Ubah Bahasa</string>
+
+    <string name="home_desc_button_search">Tombol Cari</string>
+
+
+    <!-- Profile Fragment Resource -->
+    <string name="profile_follower">Pengikut</string>
+    <string name="profile_following">Mengikuti</string>
+    <string name="profile_profile">Profil</string>
+
+    <string name="profile_desc_button_back">Tombol Kembali</string>
+    <string name="profile_desc_image_profile">Foto Profil</string>
+
+
+    <!-- Placeholder Fragment Resource -->
+    <string name="placeholder_waiting_recent_tittle">Menunggu pencarian!</string>
+    <string name="placeholder_waiting_recent_message">Hasil pencarian akan dimuat di sini</string>
+    <string name="placeholder_not_found_message">Kami tidak dapat menemukan hasil pencarian</string>
+    <string name="placeholder_error_tittle">Oops…</string>
+    <string name="placeholder_error_message">Ada yang salah, silakan coba lagi nanti</string>
+    <string name="placeholder_not_found_followers_message">Pengguna tidak memiliki pengikut</string>
+    <string name="placeholder_not_found_following_message">Pengguna tidak mengikuti siapapun</string>
+
+    <string name="placeholder_desc_image_illustration">Gambar Ilustrasi</string>
+
+
+    <!-- Item User Layout Resource -->
+    <string name="item_user_desc_image_profile">Foto Profil</string>
+
+</resources>

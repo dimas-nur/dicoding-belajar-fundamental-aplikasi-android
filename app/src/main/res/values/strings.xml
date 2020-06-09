@@ -1,6 +1,42 @@
 <resources>
     <string name="app_name">Dicoding Submission BFAA</string>
-    <string name="userDetail_follower">Follower</string>
-    <string name="userDetail_following">Following</string>
+
+    <!-- Splash Fragment Resource -->
+    <string name="splash_copyright">Copyright © 2020 by Dimas Nur Alif R</string>
+
+    <string name="splash_desc_image_dicoding">Image Dicoding</string>
+
+
+    <!-- Home Fragment Resource -->
+    <string name="home_search_user">Search User</string>
+    <string name="home_search">Search</string>
+    <string name="home_language_settings">Change Language</string>
+
+    <string name="home_desc_button_search">Button Search</string>
+
+
+    <!-- Profile Fragment Resource -->
+    <string name="profile_follower">Follower</string>
+    <string name="profile_following">Following</string>
+    <string name="profile_profile">Profile</string>
+
+    <string name="profile_desc_button_back">Button Back</string>
+    <string name="profile_desc_image_profile">Image Profile</string>
+
+
+    <!-- Placeholder Fragment Resource -->
+    <string name="placeholder_waiting_recent_tittle">Waiting to search!</string>
+    <string name="placeholder_waiting_recent_message">Search results will appear here</string>
+    <string name="placeholder_not_found_message">We could not find search results</string>
+    <string name="placeholder_error_tittle">Oops...</string>
+    <string name="placeholder_error_message">Something went wrong, please try again later</string>
+    <string name="placeholder_not_found_followers_message">User doesn\'t have followers users</string>
+    <string name="placeholder_not_found_following_message">User doesn\'t have following users</string>
+
+    <string name="placeholder_desc_image_illustration">Image Illustration</string>
+
+
+    <!-- Item User Layout Resource -->
+    <string name="item_user_desc_image_profile">Image Profile</string>
 
 </resources>

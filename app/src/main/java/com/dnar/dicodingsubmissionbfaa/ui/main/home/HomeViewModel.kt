@@ -1,20 +1,18 @@
 package com.dnar.dicodingsubmissionbfaa.ui.main.home
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
-import com.dnar.dicodingsubmissionbfaa.data.model.User
-import com.dnar.dicodingsubmissionbfaa.data.util.getDataFromJsonAsset
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.dnar.dicodingsubmissionbfaa.data.repositories.HomeRepository
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(private val application: Application) : ViewModel() {
+class HomeViewModel @Inject constructor(
+    private val repository: HomeRepository
+) : ViewModel() {
 
-    // Func : Get list User Object from file json
-    fun getUserList(): List<User> {
-        val jsonFileString = getDataFromJsonAsset(application, "github_user.json")
-        val jsonType = object : TypeToken<List<User>>() {}.type
+    // Function : for get data user search from API
+    fun getUserSearch(keyword: String) = repository.getUserSearch(keyword)
 
-        return Gson().fromJson(jsonFileString, jsonType)
+    override fun onCleared() {
+        repository.disposeComposite()
+        super.onCleared()
     }
 }

@@ -1,6 +1,7 @@
 package com.dnar.dicodingsubmissionbfaa.di.app
 
 import com.dnar.dicodingsubmissionbfaa.di.ui.main.MainActivityBuilderModule
+import com.dnar.dicodingsubmissionbfaa.di.ui.main.MainModule
 import com.dnar.dicodingsubmissionbfaa.di.ui.main.MainViewModelModule
 import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
 import dagger.Module
@@ -13,7 +14,8 @@ abstract class ActivityBuilderModule {
     @ContributesAndroidInjector(
         modules = [
             MainActivityBuilderModule::class,
-            MainViewModelModule::class
+            MainViewModelModule::class,
+            MainModule::class
         ]
     )
     abstract fun contributeMainActivity(): MainActivity
