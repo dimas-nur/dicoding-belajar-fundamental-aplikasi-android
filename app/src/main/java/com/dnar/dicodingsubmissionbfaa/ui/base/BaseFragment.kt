@@ -33,9 +33,12 @@ abstract class BaseFragment<T : ViewDataBinding, VM : ViewModel> : DaggerFragmen
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        // Set View Binding & View Model
         mViewBinding = DataBindingUtil.inflate(inflater, getLayoutId, container, false)
         mViewModel = ViewModelProvider(this, factory)[getViewModel]
 
+        // Observe tittle and set into toolbar when change
         title.observe(viewLifecycleOwner, Observer {
             setToolbar(it)
         })
@@ -43,10 +46,12 @@ abstract class BaseFragment<T : ViewDataBinding, VM : ViewModel> : DaggerFragmen
         return mViewBinding.root
     }
 
+    // Function : for change tittle toolbar
     private fun setToolbar(tittle: String) = (activity as MainActivity).changeToolbarTitle(tittle)
 
-    fun setContent(condition: Int) {
-        (activity as MainActivity).setContent(condition, mViewBinding)
+    // Function : for set content placeholder view
+    fun setContentPlaceholder(condition: Int) {
+        (activity as MainActivity).setContentPlaceholder(condition, mViewBinding)
     }
 
 }

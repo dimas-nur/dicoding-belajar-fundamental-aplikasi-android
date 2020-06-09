@@ -7,7 +7,6 @@ import com.dnar.dicodingsubmissionbfaa.data.network.setting.BasicInterceptor
 import com.dnar.dicodingsubmissionbfaa.data.util.ACCESS_TOKEN
 import com.dnar.dicodingsubmissionbfaa.data.util.BASE_URL
 import io.reactivex.Observable
-import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -18,13 +17,13 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
-
 // Api Interface; Keyword : Retrofit2
 interface ApiHelper {
 
     companion object {
         private val logger = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
+        // Function : for configure retrofit and return ApiHelper
         fun create(): ApiHelper {
             val okHttp = OkHttpClient.Builder()
                 .addInterceptor(BasicInterceptor(ACCESS_TOKEN))

@@ -8,6 +8,7 @@ class HomeViewModel @Inject constructor(
     private val repository: HomeRepository
 ) : ViewModel() {
 
+    // Function : for get data user search from API
     fun getUserSearch(keyword: String) = repository.getUserSearch(keyword)
 
     override fun onCleared() {

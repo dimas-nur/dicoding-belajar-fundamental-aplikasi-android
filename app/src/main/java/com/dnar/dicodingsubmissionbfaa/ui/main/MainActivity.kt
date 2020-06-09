@@ -6,7 +6,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.viewbinding.ViewBinding
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.dnar.dicodingsubmissionbfaa.R
-import com.dnar.dicodingsubmissionbfaa.data.model.PlaceholderView
+import com.dnar.dicodingsubmissionbfaa.data.model.ViewPlaceholder
 import com.dnar.dicodingsubmissionbfaa.databinding.ActivityMainBinding
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentHomeBinding
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentProfileBinding
@@ -23,6 +23,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Set mDialog
         mDialog = SweetAlertDialog(this).apply {
             setCancelable(false)
         }
@@ -31,6 +32,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         setUpNavigation()
     }
 
+    // Function : for set navigation controller
+    private fun setUpNavigation() {
+        val navController = findNavController(R.id.main_nav_host_fragment)
+        NavigationUI.setupActionBarWithNavController(this, navController)
+    }
+
+    // Function : for set toolbar
     private fun setToolbar() {
         mViewBinding.apply {
             setSupportActionBar(mainToolbar)
@@ -40,12 +48,14 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
+    // Function : for change tittle toolbar
     fun changeToolbarTitle(title: String) {
         mViewBinding.mainToolbarTittle.text = title
     }
 
-    fun setContent(condition: Int, binding: ViewBinding) {
-        val data = PlaceholderView()
+    // Function : for set content placeholder view
+    fun setContentPlaceholder(condition: Int, binding: ViewBinding) {
+        val data = ViewPlaceholder()
 
         data.apply {
             when (condition) {
@@ -102,11 +112,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                 binding.placeholder = data
             }
         }
-    }
-
-    private fun setUpNavigation() {
-        val navController = findNavController(R.id.main_nav_host_fragment)
-        NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
     override fun onSupportNavigateUp(): Boolean =

@@ -40,11 +40,13 @@ class UserSearchAdapter(
         }
     }
 
+    // Function : for change data in adapter
     fun setList(list: List<UserSearch>) {
         this.list = list
         notifyDataSetChanged()
     }
 
+    // Interface : for listener onClick item
     interface Listener {
         fun onUserClickListener(view: View, data: UserSearch)
     }

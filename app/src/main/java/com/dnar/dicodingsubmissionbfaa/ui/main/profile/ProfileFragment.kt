@@ -25,15 +25,21 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setContent(1)
+        // Set condition PlaceholderView
+        setContentPlaceholder(1)
 
+        // Set mDialog to get dialog from MainActivity
         mDialog = (activity as MainActivity).mDialog
 
+        // Configure ViewBinding
         mViewBinding.apply {
+
+            // Get data from arguments
             arguments?.let {
                 val username = ProfileFragmentArgs.fromBundle(it).username
                 observeDetail(username)
 
+                // Set ViewPagerAdapter
                 profileViewPager.adapter =
                     ProfileSectionsPagerAdapter(
                         childFragmentManager,
@@ -43,14 +49,18 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
                 profileTabLayout.setupWithViewPager(profileViewPager)
             }
 
+            // Set button BackToolbar onClickListener
             profileBtnBack.setOnClickListener {
                 activity?.onBackPressed()
             }
         }
     }
 
+    // Function : for observe data user detail from api
     private fun observeDetail(username: String) {
         mViewBinding.apply {
+
+            // Show ProgressBar
             profileProgressBar.show()
 
             mViewModel.getDetail(username)
@@ -60,18 +70,22 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
                             Status.StatusType.LOADING -> {
                             }
                             Status.StatusType.SUCCESS -> {
+
+                                // Hide ProgressBar and set data in ViewBinding
                                 profileProgressBar.hide()
 
                                 it.data?.let { data ->
-                                    setContent(1)
+                                    setContentPlaceholder(1)
                                     user = data
                                 }
                             }
                             Status.StatusType.ERROR -> {
+
+                                // Hide ProgressBar and show warning dialog
                                 profileProgressBar.hide()
 
                                 showDialogWarning(mDialog, status.message ?: "Error", null)
-                                setContent(2)
+                                setContentPlaceholder(2)
                             }
                         }
                     }

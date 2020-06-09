@@ -9,7 +9,7 @@
 
         <variable
             name="data"
-            type="com.dnar.dicodingsubmissionbfaa.data.model.PlaceholderView" />
+            type="com.dnar.dicodingsubmissionbfaa.data.model.ViewPlaceholder" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

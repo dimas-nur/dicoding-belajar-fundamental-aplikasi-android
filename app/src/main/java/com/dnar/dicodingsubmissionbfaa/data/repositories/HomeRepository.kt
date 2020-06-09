@@ -18,6 +18,7 @@ class HomeRepository @Inject constructor(
 
     private val compositeDisposable = CompositeDisposable()
 
+    // Function : for get data list search user from api
     fun getUserSearch(keyword: String): LiveData<Status<SearchResponse>> {
         val liveData = MutableLiveData<Status<SearchResponse>>()
 
@@ -42,6 +43,7 @@ class HomeRepository @Inject constructor(
         return liveData
     }
 
+    // Function : for dispose home repository composite
     fun disposeComposite() {
         compositeDisposable.dispose()
     }

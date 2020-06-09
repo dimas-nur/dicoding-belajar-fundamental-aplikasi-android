@@ -8,6 +8,7 @@ class ProfileViewModel @Inject constructor(
     private val repository: ProfileRepository
 ) : ViewModel() {
 
+    // Function : for get data user detail from api
     fun getDetail(username: String) = repository.getDetail(username)
 
     override fun onCleared() {

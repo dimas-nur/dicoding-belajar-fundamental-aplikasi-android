@@ -20,5 +20,6 @@
     <string name="placeholder_error_message">Ada yang salah, silakan coba lagi nanti</string>
     <string name="placeholder_not_found_followers_message">Pengguna tidak memiliki pengikut</string>
     <string name="placeholder_not_found_following_message">Pengguna tidak mengikuti siapapun</string>
+    <string name="splash_copyright">Copyright © 2020 by Dimas Nur Alif R</string>
 
 </resources>

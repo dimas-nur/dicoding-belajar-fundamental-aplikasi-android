@@ -20,5 +20,8 @@
     <string name="placeholder_error_message">Something went wrong, please try again later</string>
     <string name="placeholder_not_found_followers_message">User doesn\'t have followers users</string>
     <string name="placeholder_not_found_following_message">User doesn\'t have following users</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="splash_copyright">Copyright © 2020 by Dimas Nur Alif R</string>
 
 </resources>

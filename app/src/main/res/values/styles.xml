@@ -15,6 +15,12 @@
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
+    <style name="splash_tv_content">
+        <item name="android:fontFamily">@font/segoeui_semibold</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/colorGreySoft1</item>
+    </style>
+
     <style name="home_tv_tittle">
         <item name="android:fontFamily">@font/segoeui_semibold</item>
         <item name="android:textSize">15sp</item>

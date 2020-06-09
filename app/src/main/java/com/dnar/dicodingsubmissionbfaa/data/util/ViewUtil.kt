@@ -15,20 +15,25 @@ import com.dnar.dicodingsubmissionbfaa.R
 
 /* --- All --- */
 
+// Function : for set visibility View to VISIBLE
 fun View.show() {
     this.visibility = View.VISIBLE
 }
 
+// Function : for set visibility View to GONE
 fun View.hide() {
     this.visibility = View.GONE
 }
 
 
 /* --- Image View --- */
+
+// Function : for load image from Id into ImageView
 fun ImageView.loadImage(id: Int?) {
     id?.let { this.setImageResource(it) }
 }
 
+// Function : for load image from Url into ImageView and crop into circle
 fun ImageView.loadEclipseImage(url: String?) {
     val loader = CircularProgressDrawable(context).apply {
         strokeWidth = 10f
@@ -54,6 +59,8 @@ fun ImageView.loadEclipseImage(url: String?) {
 
 
 /* --- Navigation --- */
+
+// Function : for change navigation of NavController
 fun View.changeNavigation(direction: NavDirections) {
     Navigation.findNavController(this).navigate(direction)
 }

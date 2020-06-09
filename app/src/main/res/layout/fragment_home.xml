@@ -10,7 +10,7 @@
 
         <variable
             name="placeholder"
-            type="com.dnar.dicodingsubmissionbfaa.data.model.PlaceholderView" />
+            type="com.dnar.dicodingsubmissionbfaa.data.model.ViewPlaceholder" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

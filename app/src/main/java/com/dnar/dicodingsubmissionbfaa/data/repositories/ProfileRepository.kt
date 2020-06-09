@@ -19,6 +19,7 @@ class ProfileRepository @Inject constructor(
 
     private val compositeDisposable = CompositeDisposable()
 
+    // Function : for get data detail user from api
     fun getDetail(username: String): LiveData<Status<UserDetail>> {
         val liveData = MutableLiveData<Status<UserDetail>>()
 
@@ -43,6 +44,7 @@ class ProfileRepository @Inject constructor(
         return liveData
     }
 
+    // Function : for get data list followers user from api
     fun getFollowersUser(username: String): LiveData<Status<List<UserSearch>>> {
         val liveData = MutableLiveData<Status<List<UserSearch>>>()
 
@@ -67,6 +69,7 @@ class ProfileRepository @Inject constructor(
         return liveData
     }
 
+    // Function : for get data list following user from api
     fun getFollowingUser(username: String): LiveData<Status<List<UserSearch>>> {
         val liveData = MutableLiveData<Status<List<UserSearch>>>()
 
@@ -91,6 +94,7 @@ class ProfileRepository @Inject constructor(
         return liveData
     }
 
+    // Function : for dispose profile repository composite
     fun disposeComposite() {
         compositeDisposable.dispose()
     }
