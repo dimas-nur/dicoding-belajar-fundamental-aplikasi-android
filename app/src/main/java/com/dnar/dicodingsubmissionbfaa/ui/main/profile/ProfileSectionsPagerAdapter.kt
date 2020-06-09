@@ -12,7 +12,7 @@ class ProfileSectionsPagerAdapter(
     private val username: String
 ) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    private val tabTittles = listOf<String>(
+    private val tabTittles = listOf(
         context.getString(R.string.profile_follower),
         context.getString(R.string.profile_following)
     )

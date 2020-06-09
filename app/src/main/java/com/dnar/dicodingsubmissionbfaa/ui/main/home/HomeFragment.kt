@@ -81,7 +81,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
     // Function : for search user
     private fun searchUser() {
         mViewBinding.apply {
-            if(!homeEtSearch.text.isBlank()) {
+            if (!homeEtSearch.text.isBlank()) {
                 homeRvUser.requestFocus()
 
                 homeProgressBar.show()
@@ -98,8 +98,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
             .observe(viewLifecycleOwner, Observer {
                 it?.let { status ->
                     when (status.status) {
-                        Status.StatusType.LOADING -> {
-                        }
                         Status.StatusType.SUCCESS -> {
 
                             // Hide ProgressBar and set list data in RecyclerViewAdapter

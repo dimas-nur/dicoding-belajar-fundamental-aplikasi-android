@@ -33,7 +33,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            android:contentDescription="@string/placeholder_desc_image_illustration" />
 
         <TextView
             android:id="@+id/textView"

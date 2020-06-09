@@ -83,8 +83,6 @@ class ProfileFollowFragment : BaseFragment<FragmentProfileFollowBinding, Profile
                 .observe(viewLifecycleOwner, Observer {
                     it?.let { status ->
                         when (status.status) {
-                            Status.StatusType.LOADING -> {
-                            }
                             Status.StatusType.SUCCESS -> {
                                 it.data?.let { data ->
 
@@ -127,8 +125,6 @@ class ProfileFollowFragment : BaseFragment<FragmentProfileFollowBinding, Profile
                 .observe(viewLifecycleOwner, Observer {
                     it?.let { status ->
                         when (status.status) {
-                            Status.StatusType.LOADING -> {
-                            }
                             Status.StatusType.SUCCESS -> {
                                 it.data?.let { data ->
 

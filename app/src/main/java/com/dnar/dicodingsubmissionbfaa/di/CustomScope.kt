@@ -6,9 +6,9 @@ import javax.inject.Scope
 @Scope
 @MustBeDocumented
 @Retention(AnnotationRetention.RUNTIME)
-annotation class HomeScope()
+annotation class HomeScope
 
 @Scope
 @MustBeDocumented
 @Retention(AnnotationRetention.RUNTIME)
-annotation class ProfileScope()
+annotation class ProfileScope

@@ -24,7 +24,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/item_user_desc_image_profile" />
 
         <TextView
             android:id="@+id/itemUser_tv_name"
@@ -56,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="0.5dp"
             android:layout_marginTop="15dp"
-            android:background="@color/colorGreySoft4"
+            android:background="@color/colorGreySoft3"
             app:layout_constraintEnd_toEndOf="@+id/itemUser_tv_company"
             app:layout_constraintStart_toStartOf="@+id/itemUser_tv_company"
             app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_company" />

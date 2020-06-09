@@ -4,6 +4,4 @@ import dagger.Module
 
 // Main Module; Keyword : Dagger2
 @Module
-object MainModule {
-
-}
+object MainModule

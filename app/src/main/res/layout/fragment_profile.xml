@@ -40,7 +40,8 @@
                 android:layout_margin="10dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_all_arrow"
-                android:tint="@color/colorWhite" />
+                android:tint="@color/colorWhite"
+                android:contentDescription="@string/profile_desc_button_back" />
 
             <TextView
                 android:id="@+id/profile_toolbar_tittle"
@@ -100,7 +101,8 @@
                             android:layout_width="125dp"
                             android:layout_height="125dp"
                             android:layout_marginTop="5dp"
-                            android:layout_marginBottom="15dp" />
+                            android:layout_marginBottom="15dp"
+                            android:contentDescription="@string/profile_desc_image_profile" />
 
                         <TextView
                             android:id="@+id/profile_tv_name"

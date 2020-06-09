@@ -67,8 +67,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
                 .observe(viewLifecycleOwner, Observer {
                     it?.let { status ->
                         when (status.status) {
-                            Status.StatusType.LOADING -> {
-                            }
                             Status.StatusType.SUCCESS -> {
 
                                 // Hide ProgressBar and set data in ViewBinding

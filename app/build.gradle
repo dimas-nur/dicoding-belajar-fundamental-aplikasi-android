@@ -64,12 +64,12 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // Android Navigation Architecture
-    def navigationVersion = '2.3.0-beta01'
+    def navigationVersion = '2.2.2'
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
     // Retrofit2
-    def retrofitVersion = '2.7.0'
+    def retrofitVersion = '2.7.1'
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
@@ -100,8 +100,8 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshVersion"
 
     // Sweet Alert
-    def sweetAlerthVersion = '1.6.2'
-    implementation "com.github.f0ris.sweetalert:library:$sweetAlerthVersion"
+    def sweetAlertVersion = '1.6.2'
+    implementation "com.github.f0ris.sweetalert:library:$sweetAlertVersion"
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

@@ -17,7 +17,7 @@ abstract class BaseActivity<T : ViewDataBinding, VM : ViewModel> : DaggerAppComp
     lateinit var factory: ViewModelProviderFactory
 
     lateinit var mViewBinding: T
-    lateinit var mViewModel: VM
+    private lateinit var mViewModel: VM
 
     abstract var getLayoutId: Int
     abstract var getViewModel: Class<VM>

@@ -65,6 +65,7 @@
                         android:fontFamily="@font/segoeui"
                         android:hint="@string/home_search"
                         android:imeOptions="actionSearch"
+                        android:inputType="text"
                         android:singleLine="true"
                         android:textColor="@android:color/white"
                         android:textColorHint="@android:color/white"
@@ -74,10 +75,12 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/home_btn_search"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
+                        android:background="@null"
+                        android:contentDescription="@string/home_desc_button_search"
                         android:padding="11dp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/ic_all_search"

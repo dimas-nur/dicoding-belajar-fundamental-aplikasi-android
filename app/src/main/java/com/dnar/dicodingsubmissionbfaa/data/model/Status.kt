@@ -4,14 +4,10 @@ package com.dnar.dicodingsubmissionbfaa.data.model
 class Status<T>(val status: StatusType, val data: T?, val message: String?) {
 
     enum class StatusType {
-        LOADING, SUCCESS, ERROR
+        SUCCESS, ERROR
     }
 
     companion object {
-        fun <T> loading(): Status<T> {
-            return Status(StatusType.LOADING, null, null)
-        }
-
         fun <T> success(data: T?): Status<T> {
             return Status(StatusType.SUCCESS, data, null)
         }

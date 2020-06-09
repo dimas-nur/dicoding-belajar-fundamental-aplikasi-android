@@ -11,7 +11,7 @@ import com.dnar.dicodingsubmissionbfaa.databinding.ItemUserBinding
 
 // UserFollow Recycler View Adapter; Keyword : Adapter
 class UserFollowAdapter(
-    private val listener: UserFollowAdapter.Listener
+    private val listener: Listener
 ) : RecyclerView.Adapter<UserFollowAdapter.ViewHolder>() {
 
     private var list: List<UserSearch> = listOf()
