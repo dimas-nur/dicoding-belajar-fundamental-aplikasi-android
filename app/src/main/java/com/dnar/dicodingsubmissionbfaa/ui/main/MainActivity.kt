@@ -7,10 +7,7 @@ import androidx.viewbinding.ViewBinding
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.model.ViewPlaceholder
-import com.dnar.dicodingsubmissionbfaa.databinding.ActivityMainBinding
-import com.dnar.dicodingsubmissionbfaa.databinding.FragmentHomeBinding
-import com.dnar.dicodingsubmissionbfaa.databinding.FragmentProfileBinding
-import com.dnar.dicodingsubmissionbfaa.databinding.FragmentProfileFollowBinding
+import com.dnar.dicodingsubmissionbfaa.databinding.*
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
@@ -98,6 +95,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                     tittle = R.string.placeholder_error_tittle
                     message = R.string.placeholder_not_found_following_message
                 }
+                7 -> {
+                    // View Favorite when data is null
+                    show = true
+                    image = R.drawable.il_home_search_not_found
+                    tittle = R.string.placeholder_error_tittle
+                    message = R.string.placeholder_not_found_favorite_message
+                }
             }
         }
 
@@ -109,6 +113,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                 binding.placeholder = data
             }
             is FragmentProfileFollowBinding -> {
+                binding.placeholder = data
+            }
+            is FragmentFavoriteBinding -> {
                 binding.placeholder = data
             }
         }

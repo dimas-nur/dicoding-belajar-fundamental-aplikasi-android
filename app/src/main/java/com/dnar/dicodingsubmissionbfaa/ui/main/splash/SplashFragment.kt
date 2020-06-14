@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dnar.dicodingsubmissionbfaa.R
-import com.dnar.dicodingsubmissionbfaa.data.util.changeNavigation
+import com.dnar.dicodingsubmissionbfaa.util.changeNavigation
 
 // Home fragment implements fragment
 class SplashFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.dnar.dicodingsubmissionbfaa.data.util
+package com.dnar.dicodingsubmissionbfaa.util
 
 // Util for tag arguments; Keyword : Util
 

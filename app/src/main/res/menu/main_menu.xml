@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/action_home_change_language"
+        android:id="@+id/action_home_favorite"
+        android:icon="@drawable/ic_favorite_favorite_filled"
+        android:title="@string/home_favorite"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_home_setting"
+        android:icon="@drawable/ic_action_setting"
         android:title="@string/home_language_settings"
-        app:showAsAction="never"/>
+        app:showAsAction="always" />
 </menu>

@@ -9,7 +9,7 @@ import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.adapter.UserFollowAdapter
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
 import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
-import com.dnar.dicodingsubmissionbfaa.data.util.*
+import com.dnar.dicodingsubmissionbfaa.util.*
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentProfileFollowBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity

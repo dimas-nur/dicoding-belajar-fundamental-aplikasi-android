@@ -32,11 +32,14 @@
     <string name="placeholder_error_message">Something went wrong, please try again later</string>
     <string name="placeholder_not_found_followers_message">User doesn\'t have followers users</string>
     <string name="placeholder_not_found_following_message">User doesn\'t have following users</string>
+    <string name="placeholder_not_found_favorite_message">You doesn\'t have favorite users</string>
 
     <string name="placeholder_desc_image_illustration">Image Illustration</string>
 
 
     <!-- Item User Layout Resource -->
     <string name="item_user_desc_image_profile">Image Profile</string>
+    <string name="favorite_user_favorite">User Favorite</string>
+    <string name="home_favorite">Favorite</string>
 
 </resources>

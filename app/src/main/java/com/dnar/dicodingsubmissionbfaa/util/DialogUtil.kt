@@ -1,4 +1,4 @@
-package com.dnar.dicodingsubmissionbfaa.data.util
+package com.dnar.dicodingsubmissionbfaa.util
 
 import android.util.Log
 import cn.pedant.SweetAlert.SweetAlertDialog

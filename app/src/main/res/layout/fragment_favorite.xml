@@ -19,14 +19,14 @@
         android:background="@color/colorWhiteSoft">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/home_appBarLayout"
+            android:id="@+id/favorite_appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/home_toolbar"
+                android:id="@+id/favorite_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/colorPrimary"
@@ -35,11 +35,22 @@
                 app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
                 <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/favorite_btn_back"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/profile_desc_button_back"
                     android:scaleType="centerInside"
-                    android:src="@drawable/img_dicoding"
+                    android:src="@drawable/ic_all_arrow"
                     android:tint="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/favorite_toolbar_tittle"
+                    style="@style/main_tv_actionBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/favorite_user_favorite" />
             </androidx.appcompat.widget.Toolbar>
 
             <RelativeLayout
@@ -47,8 +58,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="10dp">
+                android:padding="10dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -57,7 +67,7 @@
                     android:paddingHorizontal="11dp">
 
                     <EditText
-                        android:id="@+id/home_et_search"
+                        android:id="@+id/favorite_et_search"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
@@ -71,12 +81,12 @@
                         android:textColorHint="@android:color/white"
                         android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/home_btn_search"
+                        app:layout_constraintEnd_toStartOf="@+id/favorite_btn_search"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageButton
-                        android:id="@+id/home_btn_search"
+                        android:id="@+id/favorite_btn_search"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:background="@null"
@@ -100,7 +110,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <ProgressBar
-                android:id="@+id/home_progressBar"
+                android:id="@+id/favorite_progressBar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="?attr/actionBarSize"
@@ -120,7 +130,7 @@
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/home_rv_user"
+                    android:id="@+id/favorite_rv_user"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clipToPadding="false"

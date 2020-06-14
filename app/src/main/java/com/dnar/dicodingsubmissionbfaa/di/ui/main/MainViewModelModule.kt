@@ -3,6 +3,7 @@ package com.dnar.dicodingsubmissionbfaa.di.ui.main
 import androidx.lifecycle.ViewModel
 import com.dnar.dicodingsubmissionbfaa.di.viewmodel.ViewModelKey
 import com.dnar.dicodingsubmissionbfaa.ui.main.MainViewModel
+import com.dnar.dicodingsubmissionbfaa.ui.main.favorite.FavoriteViewModel
 import com.dnar.dicodingsubmissionbfaa.ui.main.home.HomeViewModel
 import com.dnar.dicodingsubmissionbfaa.ui.main.profile.ProfileViewModel
 import com.dnar.dicodingsubmissionbfaa.ui.main.profile.follow.ProfileFollowViewModel
@@ -33,4 +34,9 @@ abstract class MainViewModelModule {
     @IntoMap
     @ViewModelKey(ProfileFollowViewModel::class)
     abstract fun bindProfileFollowViewModel(profileFollowViewModel: ProfileFollowViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(FavoriteViewModel::class)
+    abstract fun bindFavoriteViewModel(favoriteViewModel: FavoriteViewModel): ViewModel
 }

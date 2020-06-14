@@ -27,7 +27,7 @@
             android:visibility="gone" />
 
         <include
-            layout="@layout/include_home_illustration"
+            layout="@layout/include_placeholder_view"
             android:visibility="@{placeholder.show? View.VISIBLE : View.GONE}"
             bind:data="@{placeholder}"
             tools:visibility="gone" />

@@ -7,9 +7,9 @@ import androidx.lifecycle.Observer
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
-import com.dnar.dicodingsubmissionbfaa.data.util.hide
-import com.dnar.dicodingsubmissionbfaa.data.util.show
-import com.dnar.dicodingsubmissionbfaa.data.util.showDialogWarning
+import com.dnar.dicodingsubmissionbfaa.util.hide
+import com.dnar.dicodingsubmissionbfaa.util.show
+import com.dnar.dicodingsubmissionbfaa.util.showDialogWarning
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentProfileBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity

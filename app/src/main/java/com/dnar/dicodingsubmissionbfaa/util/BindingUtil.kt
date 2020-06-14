@@ -1,4 +1,4 @@
-package com.dnar.dicodingsubmissionbfaa.data.util
+package com.dnar.dicodingsubmissionbfaa.util
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

@@ -12,10 +12,10 @@ import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.adapter.UserSearchAdapter
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
 import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
-import com.dnar.dicodingsubmissionbfaa.data.util.*
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentHomeBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
+import com.dnar.dicodingsubmissionbfaa.util.*
 
 // Home fragment implements dagger fragment
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
@@ -45,10 +45,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
             homeToolbar.apply {
                 inflateMenu(R.menu.main_menu)
                 setOnMenuItemClickListener {
-                    if (it.itemId == R.id.action_home_change_language) {
-                        startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+                    when (it.itemId) {
+                        R.id.action_home_setting -> {
+                            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+                        }
+                        R.id.action_home_favorite -> {
+                            val action =
+                                HomeFragmentDirections.actionHomeFragmentToFavoriteFragment()
+                            view.changeNavigation(action)
+                        }
                     }
-
                     false
                 }
             }

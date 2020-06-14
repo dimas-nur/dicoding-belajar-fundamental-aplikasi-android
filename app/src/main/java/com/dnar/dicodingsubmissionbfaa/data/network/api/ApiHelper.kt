@@ -4,8 +4,8 @@ import com.dnar.dicodingsubmissionbfaa.data.model.UserDetail
 import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
 import com.dnar.dicodingsubmissionbfaa.data.model.response.SearchResponse
 import com.dnar.dicodingsubmissionbfaa.data.network.setting.BasicInterceptor
-import com.dnar.dicodingsubmissionbfaa.data.util.ACCESS_TOKEN
-import com.dnar.dicodingsubmissionbfaa.data.util.BASE_URL
+import com.dnar.dicodingsubmissionbfaa.util.ACCESS_TOKEN
+import com.dnar.dicodingsubmissionbfaa.util.BASE_URL
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
