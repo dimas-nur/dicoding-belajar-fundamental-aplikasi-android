@@ -176,7 +176,8 @@
                     android:layout_gravity="bottom|end"
                     android:layout_margin="20dp"
                     android:backgroundTint="#FF5252"
-                    android:src="@drawable/ic_favorite_favorite_unfilled" />
+                    app:borderWidth="0dp"
+                    tools:src="@drawable/ic_favorite_favorite_unfilled" />
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
