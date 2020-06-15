@@ -1,5 +1,6 @@
 package com.dnar.dicodingsubmissionbfaa.di.ui.main.profile
 
+import com.dnar.dicodingsubmissionbfaa.data.db.AppDatabase
 import com.dnar.dicodingsubmissionbfaa.data.network.api.ApiHelper
 import com.dnar.dicodingsubmissionbfaa.data.repositories.ProfileRepository
 import dagger.Module
@@ -14,6 +15,7 @@ object ProfileModule {
     @JvmStatic
     @Provides
     fun provideProfileRepository(
-        api: ApiHelper
-    ) = ProfileRepository(api)
+        api: ApiHelper,
+        db: AppDatabase
+    ) = ProfileRepository(api, db)
 }

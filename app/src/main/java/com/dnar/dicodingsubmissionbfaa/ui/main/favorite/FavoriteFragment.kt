@@ -7,6 +7,7 @@ import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentFavoriteBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 
+// Favorite fragment implements dagger fragment
 class FavoriteFragment : BaseFragment<FragmentFavoriteBinding, FavoriteViewModel>() {
 
     override var getLayoutId: Int = R.layout.fragment_favorite

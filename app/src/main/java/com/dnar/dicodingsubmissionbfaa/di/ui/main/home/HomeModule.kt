@@ -1,5 +1,6 @@
 package com.dnar.dicodingsubmissionbfaa.di.ui.main.home
 
+import com.dnar.dicodingsubmissionbfaa.data.db.AppDatabase
 import com.dnar.dicodingsubmissionbfaa.data.network.api.ApiHelper
 import com.dnar.dicodingsubmissionbfaa.data.repositories.HomeRepository
 import dagger.Module

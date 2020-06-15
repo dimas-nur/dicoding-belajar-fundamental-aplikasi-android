@@ -41,5 +41,7 @@
     <string name="item_user_desc_image_profile">Image Profile</string>
     <string name="favorite_user_favorite">User Favorite</string>
     <string name="home_favorite">Favorite</string>
+    <string name="favorite_success_add">Success add to favorite</string>
+    <string name="favorite_success_deleted">Deleted from favorite</string>
 
 </resources>

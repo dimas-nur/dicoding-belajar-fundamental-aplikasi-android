@@ -5,7 +5,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog
 import com.dnar.dicodingsubmissionbfaa.R
 
 // Function : for show alert dialog type Warning
-fun showDialogWarning(dialog: SweetAlertDialog, message: String, method: (() -> Unit)?) {
+fun showDialogWarning(dialog: SweetAlertDialog, message: String?, method: (() -> Unit)?) {
     // Start warning dialog
     dialog.apply {
         changeAlertType(SweetAlertDialog.WARNING_TYPE)

@@ -114,6 +114,10 @@ dependencies {
     def sweetAlertVersion = '1.6.2'
     implementation "com.github.f0ris.sweetalert:library:$sweetAlertVersion"
 
+    // Fancy Toast
+    def fancyToastVersion = '0.1.6'
+    implementation "com.github.Shashank02051997:FancyToast-Android:$fancyToastVersion"
+
     // Testing
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
