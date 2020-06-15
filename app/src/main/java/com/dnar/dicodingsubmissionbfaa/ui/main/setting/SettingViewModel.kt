@@ -1,7 +1,8 @@
 package com.dnar.dicodingsubmissionbfaa.ui.main.setting
 
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class SettingViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class SettingViewModel @Inject constructor() : ViewModel() {
+
 }

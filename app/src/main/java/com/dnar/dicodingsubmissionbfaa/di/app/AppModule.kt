@@ -1,11 +1,14 @@
 package com.dnar.dicodingsubmissionbfaa.di.app
 
 import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Room
 import com.dnar.dicodingsubmissionbfaa.data.db.AppDatabase
 import com.dnar.dicodingsubmissionbfaa.data.network.api.ApiHelper
 import com.dnar.dicodingsubmissionbfaa.data.repositories.UserRepository
 import com.dnar.dicodingsubmissionbfaa.util.DATABASE_NAME
+import com.dnar.dicodingsubmissionbfaa.util.SP_NAME
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -34,4 +37,10 @@ object AppModule {
     @JvmStatic
     @Provides
     fun provideUserRepository(db: AppDatabase) = UserRepository(db)
+
+    @Singleton
+    @JvmStatic
+    @Provides
+    fun provideSharedPreferences(application: Application): SharedPreferences =
+        application.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE)
 }

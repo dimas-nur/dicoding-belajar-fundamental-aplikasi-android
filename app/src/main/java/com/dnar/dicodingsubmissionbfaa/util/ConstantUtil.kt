@@ -19,3 +19,7 @@ const val ALARM_CHANNEL_ID = "channel_reminder"
 const val ALARM_CHANNEL_NAME = "Reminder Channel"
 const val ALARM_TITTLE = "alarm_tittle"
 const val ALARM_MESSAGE = "alarm_message"
+
+/* --- SharedPreferences --- */
+const val SP_NAME = "dicoding_shared_preferences"
+const val SP_KEY_REMINDER = "shared_preferences_reminder"

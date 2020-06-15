@@ -17,3 +17,8 @@ annotation class ProfileScope
 @MustBeDocumented
 @Retention(AnnotationRetention.RUNTIME)
 annotation class FavoriteScope
+
+@Scope
+@MustBeDocumented
+@Retention(AnnotationRetention.RUNTIME)
+annotation class SettingScope

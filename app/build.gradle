@@ -95,12 +95,16 @@ dependencies {
     def rxAndroidVersion = '2.1.1'
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
 
-    //Android Room
+    // Room
     def roomVersion = '2.2.5'
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
     implementation "androidx.room:room-rxjava2:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
+
+    // Preference
+    def preferenceVersion = '1.1.1'
+    implementation "androidx.preference:preference:$preferenceVersion"
 
     // Glide
     def glideVersion = '4.11.0'

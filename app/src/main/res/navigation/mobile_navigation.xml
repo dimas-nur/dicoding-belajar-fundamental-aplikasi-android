@@ -9,19 +9,22 @@
         android:id="@+id/homeFragment"
         android:name="com.dnar.dicodingsubmissionbfaa.ui.main.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_userDetailFragment"
             app:destination="@id/userDetailFragment" />
         <action
             android:id="@+id/action_homeFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
     </fragment>
     <fragment
         android:id="@+id/userDetailFragment"
         android:name="com.dnar.dicodingsubmissionbfaa.ui.main.profile.ProfileFragment"
         android:label="fragment_user_detail"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <argument
             android:name="username"
             app:argType="string" />
@@ -37,7 +40,7 @@
         android:id="@+id/splashFragment"
         android:name="com.dnar.dicodingsubmissionbfaa.ui.main.splash.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
             app:destination="@id/homeFragment"
@@ -46,9 +49,13 @@
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.dnar.dicodingsubmissionbfaa.ui.main.favorite.FavoriteFragment"
-        android:label="FavoriteFragment" >
+        android:label="FavoriteFragment">
         <action
             android:id="@+id/action_favoriteFragment_to_userDetailFragment"
             app:destination="@id/userDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.dnar.dicodingsubmissionbfaa.ui.main.setting.SettingFragment"
+        android:label="SettingFragment" />
 </navigation>

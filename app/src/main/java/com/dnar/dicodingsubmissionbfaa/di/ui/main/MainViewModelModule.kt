@@ -7,6 +7,7 @@ import com.dnar.dicodingsubmissionbfaa.ui.main.favorite.FavoriteViewModel
 import com.dnar.dicodingsubmissionbfaa.ui.main.home.HomeViewModel
 import com.dnar.dicodingsubmissionbfaa.ui.main.profile.ProfileViewModel
 import com.dnar.dicodingsubmissionbfaa.ui.main.profile.follow.ProfileFollowViewModel
+import com.dnar.dicodingsubmissionbfaa.ui.main.setting.SettingViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -39,4 +40,9 @@ abstract class MainViewModelModule {
     @IntoMap
     @ViewModelKey(FavoriteViewModel::class)
     abstract fun bindFavoriteViewModel(favoriteViewModel: FavoriteViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SettingViewModel::class)
+    abstract fun bindSettingViewModel(settingViewModel: SettingViewModel): ViewModel
 }

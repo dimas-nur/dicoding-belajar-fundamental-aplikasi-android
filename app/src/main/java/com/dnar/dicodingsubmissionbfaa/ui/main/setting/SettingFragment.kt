@@ -1,32 +1,83 @@
 package com.dnar.dicodingsubmissionbfaa.ui.main.setting
 
-import androidx.lifecycle.ViewModelProviders
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.provider.Settings
 import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.MutableLiveData
 import com.dnar.dicodingsubmissionbfaa.R
+import com.dnar.dicodingsubmissionbfaa.data.service.AlarmHelper
+import com.dnar.dicodingsubmissionbfaa.databinding.FragmentSettingBinding
+import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
+import com.dnar.dicodingsubmissionbfaa.util.ALARM_ID_REPEATING
+import com.dnar.dicodingsubmissionbfaa.util.SP_KEY_REMINDER
+import java.util.*
+import javax.inject.Inject
 
-class SettingFragment : Fragment() {
+class SettingFragment : BaseFragment<FragmentSettingBinding, SettingViewModel>() {
 
-    companion object {
-        fun newInstance() = SettingFragment()
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
+
+    override var getLayoutId: Int = R.layout.fragment_setting
+    override var getViewModel: Class<SettingViewModel> = SettingViewModel::class.java
+    override var title: MutableLiveData<String> = MutableLiveData("Setting")
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Configure ViewBinding
+        mViewBinding.apply {
+
+            // Set button BackToolbar onClickListener
+            settingBtnBack.setOnClickListener {
+                activity?.onBackPressed()
+            }
+
+            // Set button ChangeLanguage onClickListener
+            settingBtnChangeLanguage.setOnClickListener {
+                startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+            }
+
+            // Set button ChangeLanguage onClickListener
+            settingSwitchReminder.apply {
+
+                // Get state reminder from SharedPreferences
+                isChecked = sharedPreferences.getBoolean(SP_KEY_REMINDER, true)
+
+                // Change state reminder from SharedPreferences
+                setOnCheckedChangeListener { _, isChecked ->
+                    setReminder(isChecked)
+                }
+            }
+        }
     }
 
-    private lateinit var viewModel: SettingViewModel
+    // Save reminder state to SharedPreferences
+    private fun setReminder(reminder: Boolean) {
+        sharedPreferences.edit().apply {
+            putBoolean(SP_KEY_REMINDER, reminder)
+        }.apply()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_setting, container, false)
+        context?.let {
+            if (reminder) {
+                // Create reminder alarm
+                AlarmHelper.createAlarm(
+                    it,
+                    getString(R.string.app_name),
+                    "Let's find popular user on Github!",
+                    ALARM_ID_REPEATING,
+                    Calendar.getInstance().apply {
+                        set(Calendar.HOUR_OF_DAY, 9)
+                        set(Calendar.MINUTE, 0)
+                        set(Calendar.SECOND, 0)
+                    }
+                )
+            } else {
+                // Delete reminder alarm
+                AlarmHelper.cancelAlarm(it, ALARM_ID_REPEATING)
+            }
+        }
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(SettingViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }

@@ -1,8 +1,6 @@
 package com.dnar.dicodingsubmissionbfaa.ui.main.home
 
-import android.content.Intent
 import android.os.Bundle
-import android.provider.Settings
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.lifecycle.MutableLiveData
@@ -47,7 +45,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
                 setOnMenuItemClickListener {
                     when (it.itemId) {
                         R.id.action_home_setting -> {
-                            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+                            val action =
+                                HomeFragmentDirections.actionHomeFragmentToSettingFragment()
+                            view.changeNavigation(action)
                         }
                         R.id.action_home_favorite -> {
                             val action =

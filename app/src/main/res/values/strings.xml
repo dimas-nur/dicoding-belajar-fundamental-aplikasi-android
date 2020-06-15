@@ -43,5 +43,8 @@
     <string name="home_favorite">Favorite</string>
     <string name="favorite_success_add">Success add to favorite</string>
     <string name="favorite_success_deleted">Deleted from favorite</string>
+    <string name="setting_setting">Setting</string>
+    <string name="setting_change_language">Change Language</string>
+    <string name="setting_daily_reminder">Daily Reminder</string>
 
 </resources>
