@@ -12,9 +12,7 @@ import com.dnar.dicodingsubmissionbfaa.data.model.Status
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentFavoriteBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
-import com.dnar.dicodingsubmissionbfaa.util.hide
-import com.dnar.dicodingsubmissionbfaa.util.show
-import com.dnar.dicodingsubmissionbfaa.util.showDialogWarning
+import com.dnar.dicodingsubmissionbfaa.util.*
 
 // Favorite fragment implements dagger fragment
 class FavoriteFragment : BaseFragment<FragmentFavoriteBinding, FavoriteViewModel>(),
@@ -96,6 +94,9 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding, FavoriteViewModel
     }
 
     override fun onUserClickListener(view: View, data: UserEntity) {
-
+        val action = FavoriteFragmentDirections.actionFavoriteFragmentToUserDetailFragment(
+            data.login, data.toUserDetail()
+        )
+        view.changeNavigation(action)
     }
 }

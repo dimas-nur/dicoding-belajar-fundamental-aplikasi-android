@@ -12,7 +12,6 @@ import com.dnar.dicodingsubmissionbfaa.data.db.entities.UserEntity
     entities = [UserEntity::class],
     exportSchema = false
 )
-@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getUserDao(): UserDao

@@ -41,15 +41,26 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
 
             // Get data from arguments
             arguments?.let {
+                val user = ProfileFragmentArgs.fromBundle(it).user
                 val username = ProfileFragmentArgs.fromBundle(it).username
-                observeDetail(username)
+
+                if (user != null) {
+                    setContentPlaceholder(1)
+
+                    // Observe is favorite user ?
+                    observeCheckFavoriteUser(user.id)
+                    this.user = user
+                } else {
+                    observeDetail(username)
+                }
 
                 // Set ViewPagerAdapter
                 profileViewPager.adapter =
                     ProfileSectionsPagerAdapter(
                         childFragmentManager,
                         this@ProfileFragment,
-                        username
+                        username,
+                        user
                     )
                 profileTabLayout.setupWithViewPager(profileViewPager)
             }

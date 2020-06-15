@@ -4,4 +4,5 @@ package com.dnar.dicodingsubmissionbfaa.util
 
 /* --- Fragment --- */
 const val ARG_FRAGMENT_KEY = "fragment_key"
-const val ARG_FRAGMENT_VALUE = "fragment_value"
+const val ARG_FRAGMENT_VALUE_USERNAME = "fragment_value_username"
+const val ARG_FRAGMENT_VALUE_USER = "fragment_value_user"

@@ -134,7 +134,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
     }
 
     override fun onUserClickListener(view: View, data: UserSearch) {
-        val action = HomeFragmentDirections.actionHomeFragmentToUserDetailFragment(data.login)
+        val action = HomeFragmentDirections.actionHomeFragmentToUserDetailFragment(data.login, null)
         view.changeNavigation(action)
     }
 }

@@ -28,6 +28,10 @@
         <action
             android:id="@+id/action_userDetailFragment_self"
             app:destination="@id/userDetailFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.dnar.dicodingsubmissionbfaa.data.model.UserDetail"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -42,5 +46,9 @@
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.dnar.dicodingsubmissionbfaa.ui.main.favorite.FavoriteFragment"
-        android:label="FavoriteFragment" />
+        android:label="FavoriteFragment" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
 </navigation>
