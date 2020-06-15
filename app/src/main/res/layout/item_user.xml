@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="user"
             type="com.dnar.dicodingsubmissionbfaa.data.model.UserSearch" />
+
+        <variable
+            name="userEntity"
+            type="com.dnar.dicodingsubmissionbfaa.data.db.entities.UserEntity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,16 +21,17 @@
 
         <ImageView
             android:id="@+id/item_user_img_profile"
-            imageUrl="@{user.avatar_url}"
+            imageUrl="@{user.avatar_url ?? userEntity.avatar_url}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="12dp"
+            android:contentDescription="@string/item_user_desc_image_profile"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/item_user_desc_image_profile" />
+            tools:src="@drawable/img_picture" />
 
         <TextView
             android:id="@+id/itemUser_tv_name"
@@ -36,10 +42,11 @@
             android:layout_marginTop="3dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="@{user.login}"
+            android:text="@{user.login ?? (userEntity.name ?? userEntity.login)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/item_user_img_profile"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Username" />
 
         <TextView
             android:id="@+id/itemUser_tv_company"
@@ -48,10 +55,11 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="@{user.type}"
+            android:text="@{user.type ?? userEntity.login}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/itemUser_tv_name"
-            app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_name" />
+            app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_name"
+            tools:text="Role" />
 
         <TextView
             android:layout_width="0dp"

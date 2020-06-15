@@ -126,10 +126,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun onBackPressed() {
         supportFragmentManager.apply {
-            if (backStackEntryCount > 0)
-                popBackStack()
-            else
+            if ((findFragmentById(R.id.main_nav_host_fragment)?.childFragmentManager?.backStackEntryCount) ?: 0 > 1)
                 super.onBackPressed()
+            else
+                finish()
         }
     }
 }

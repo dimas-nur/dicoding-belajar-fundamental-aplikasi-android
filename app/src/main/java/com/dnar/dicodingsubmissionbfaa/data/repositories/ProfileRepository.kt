@@ -2,7 +2,6 @@ package com.dnar.dicodingsubmissionbfaa.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.dnar.dicodingsubmissionbfaa.data.db.AppDatabase
 import com.dnar.dicodingsubmissionbfaa.data.db.entities.UserEntity
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
 import com.dnar.dicodingsubmissionbfaa.data.model.UserDetail
@@ -16,8 +15,8 @@ import javax.inject.Inject
 
 // Profile Repository; Keyword : Repository
 class ProfileRepository @Inject constructor(
-    val api: ApiHelper,
-    private val db: AppDatabase
+    private val api: ApiHelper,
+    private val userRepository: UserRepository
 ) {
 
     private val compositeDisposable = CompositeDisposable()
@@ -98,35 +97,13 @@ class ProfileRepository @Inject constructor(
     }
 
     // Function : for check is data stored in database ?
-    fun checkFavoriteUser(userId: Int): LiveData<UserEntity> {
-        val liveData = MutableLiveData<UserEntity>()
-
-        compositeDisposable.add(
-            db.getUserDao().getUserById(userId)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeBy(
-                    onSuccess = {
-                        it?.let {
-                            liveData.postValue(it)
-                            return@subscribeBy
-                        }
-                        liveData.postValue(null)
-                    },
-                    onError = {
-                        liveData.postValue(null)
-                    }
-                )
-        )
-
-        return liveData
-    }
+    fun checkFavoriteUser(userId: Int) = userRepository.checkFavoriteUser(userId)
 
     // Function : for save data into database
-    fun addFavoriteUser(user: UserEntity) = db.getUserDao().insertUser(user)
+    fun addFavoriteUser(user: UserEntity) = userRepository.addFavoriteUser(user)
 
     // Function : for delete data in database
-    fun deleteFavoriteUser(user: UserEntity) = db.getUserDao().deleteUser(user)
+    fun deleteFavoriteUser(user: UserEntity) = userRepository.deleteFavoriteUser(user)
 
     // Function : for dispose profile repository composite
     fun disposeComposite() {

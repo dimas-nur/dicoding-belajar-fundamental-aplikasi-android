@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.dnar.dicodingsubmissionbfaa.data.db.AppDatabase
 import com.dnar.dicodingsubmissionbfaa.data.network.api.ApiHelper
+import com.dnar.dicodingsubmissionbfaa.data.repositories.UserRepository
 import com.dnar.dicodingsubmissionbfaa.util.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
@@ -17,8 +18,7 @@ object AppModule {
     @Singleton
     @JvmStatic
     @Provides
-    fun provideApiHelper(): ApiHelper =
-        ApiHelper.create()
+    fun provideApiHelper(): ApiHelper = ApiHelper.create()
 
     /* --- Room --- */
     @Singleton
@@ -30,4 +30,8 @@ object AppModule {
         DATABASE_NAME
     ).allowMainThreadQueries().build()
 
+    @Singleton
+    @JvmStatic
+    @Provides
+    fun provideUserRepository(db: AppDatabase) = UserRepository(db)
 }
