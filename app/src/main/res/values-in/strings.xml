@@ -8,12 +8,12 @@
 
 
     <!-- Home Fragment Resource -->
-    <string name="home_search_user">Cari Pengguna</string>
     <string name="home_search">Cari</string>
     <string name="home_language_settings">Ubah Bahasa</string>
     <string name="home_favorite">Pengguna Favorit</string>
 
     <string name="home_desc_button_search">Tombol Cari</string>
+    <string name="home_desc_icon_dicoding">Ikon Dicoding</string>
 
 
     <!-- Profile Fragment Resource -->
@@ -49,6 +49,8 @@
     <string name="setting_daily_reminder">Pengingat Harian</string>
     <string name="setting_turn_on_reminder">Berhasil menyalakan pengingat harian</string>
     <string name="setting_turn_off_reminder">Mematikan pengingat harian</string>
+
+    <string name="setting_desc_icon_arrow">Ikon Panah</string>
 
 
     <!-- Item User Layout Resource -->

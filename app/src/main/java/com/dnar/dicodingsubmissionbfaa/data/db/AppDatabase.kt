@@ -2,7 +2,6 @@ package com.dnar.dicodingsubmissionbfaa.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import com.dnar.dicodingsubmissionbfaa.data.db.dao.UserDao
 import com.dnar.dicodingsubmissionbfaa.data.db.entities.UserEntity
 

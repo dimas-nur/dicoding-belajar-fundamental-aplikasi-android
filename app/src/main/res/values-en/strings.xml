@@ -8,12 +8,12 @@
 
 
     <!-- Home Fragment Resource -->
-    <string name="home_search_user">Search User</string>
     <string name="home_search">Search</string>
     <string name="home_language_settings">Change Language</string>
     <string name="home_favorite">User Favorite</string>
 
     <string name="home_desc_button_search">Button Search</string>
+    <string name="home_desc_icon_dicoding">Icon Dicoding</string>
 
 
     <!-- Profile Fragment Resource -->
@@ -29,7 +29,7 @@
     <string name="placeholder_waiting_recent_tittle">Waiting to search!</string>
     <string name="placeholder_waiting_recent_message">Search results will appear here</string>
     <string name="placeholder_not_found_message">We could not find search results</string>
-    <string name="placeholder_error_tittle">Oops...</string>
+    <string name="placeholder_error_tittle">Oops…</string>
     <string name="placeholder_error_message">Something went wrong, please try again later</string>
     <string name="placeholder_not_found_followers_message">User doesn\'t have followers users</string>
     <string name="placeholder_not_found_following_message">User doesn\'t have following users</string>
@@ -49,6 +49,8 @@
     <string name="setting_daily_reminder">Daily Reminder</string>
     <string name="setting_turn_on_reminder">Success turn on daily reminder</string>
     <string name="setting_turn_off_reminder">Turn off reminder</string>
+
+    <string name="setting_desc_icon_arrow">Icon Arrow</string>
 
 
     <!-- Item User Layout Resource -->

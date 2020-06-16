@@ -8,12 +8,12 @@
 
 
     <!-- Home Fragment Resource -->
-    <string name="home_search_user">Search User</string>
     <string name="home_search">Search</string>
     <string name="home_language_settings">Change Language</string>
     <string name="home_favorite">User Favorite</string>
 
     <string name="home_desc_button_search">Button Search</string>
+    <string name="home_desc_icon_dicoding">Icon Dicoding</string>
 
 
     <!-- Profile Fragment Resource -->
@@ -49,6 +49,8 @@
     <string name="setting_daily_reminder">Daily Reminder</string>
     <string name="setting_turn_on_reminder">Success turn on daily reminder</string>
     <string name="setting_turn_off_reminder">Turn off reminder</string>
+
+    <string name="setting_desc_icon_arrow">Icon Arrow</string>
 
 
     <!-- Item User Layout Resource -->

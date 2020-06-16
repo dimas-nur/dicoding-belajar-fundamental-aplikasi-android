@@ -39,7 +39,8 @@
                     android:layout_height="40dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/img_dicoding"
-                    android:tint="@color/colorWhite" />
+                    android:tint="@color/colorWhite"
+                    android:contentDescription="@string/home_desc_icon_dicoding" />
             </androidx.appcompat.widget.Toolbar>
 
             <RelativeLayout

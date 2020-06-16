@@ -69,7 +69,8 @@
                     android:src="@drawable/ic_setting_arrow"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/setting_desc_icon_arrow" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView

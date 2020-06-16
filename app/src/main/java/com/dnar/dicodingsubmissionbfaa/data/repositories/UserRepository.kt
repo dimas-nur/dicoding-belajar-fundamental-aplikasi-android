@@ -4,22 +4,16 @@ import android.content.Context
 import androidx.core.net.toUri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.dnar.dicodingsubmissionbfaa.data.db.AppDatabase
 import com.dnar.dicodingsubmissionbfaa.data.db.entities.UserEntity
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
 import com.dnar.dicodingsubmissionbfaa.util.USER_CONTENT_URI
 import com.dnar.dicodingsubmissionbfaa.util.toContentValues
 import com.dnar.dicodingsubmissionbfaa.util.toListUserEntity
 import com.dnar.dicodingsubmissionbfaa.util.toUserEntity
-import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 // User repository; Keyword : Repository
-class UserRepository @Inject constructor(
-    private val db: AppDatabase
-) {
-
-    private val compositeDisposable = CompositeDisposable()
+class UserRepository @Inject constructor() {
 
     // Function : for check is data stored in database ?
     fun checkFavoriteUser(userId: Int, context: Context): LiveData<Status<UserEntity>> {
@@ -80,13 +74,5 @@ class UserRepository @Inject constructor(
         }
 
         return liveData
-    }
-
-    // Function : for get user by id from database
-    fun getUserById(userId: Int) = db.getUserDao().getUserById(userId)
-
-    // Function : for dispose profile repository composite
-    fun disposeComposite() {
-        compositeDisposable.dispose()
     }
 }

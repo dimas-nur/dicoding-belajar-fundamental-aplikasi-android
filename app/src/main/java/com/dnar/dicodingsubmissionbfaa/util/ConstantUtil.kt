@@ -17,7 +17,6 @@ const val ARG_FRAGMENT_VALUE_USER = "fragment_value_user"
 
 
 /* --- Alarm --- */
-const val ALARM_TYPE_REPEATING = "repeating_alarm"
 const val ALARM_ID_REPEATING = 100
 const val ALARM_CHANNEL_ID = "channel_reminder"
 const val ALARM_CHANNEL_NAME = "Reminder Channel"
@@ -35,7 +34,6 @@ const val DATABASE_NAME = "DicodingSubmissionBFAA.db"
 const val DATABASE_AUTHORITY = "com.dnar.dicodingsubmissionbfaa"
 const val DATABASE_SCHEME = "content"
 const val DATABASE_CONTENT_URI = "$DATABASE_SCHEME://$DATABASE_AUTHORITY"
-const val EXTRA_STATE = "EXTRA_STATE"
 
 
 /* --- Database Table User --- */

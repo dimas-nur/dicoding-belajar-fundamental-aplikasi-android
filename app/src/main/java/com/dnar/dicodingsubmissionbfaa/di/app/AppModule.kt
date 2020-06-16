@@ -36,7 +36,7 @@ object AppModule {
     @Singleton
     @JvmStatic
     @Provides
-    fun provideUserRepository(db: AppDatabase) = UserRepository(db)
+    fun provideUserRepository() = UserRepository()
 
     @Singleton
     @JvmStatic
