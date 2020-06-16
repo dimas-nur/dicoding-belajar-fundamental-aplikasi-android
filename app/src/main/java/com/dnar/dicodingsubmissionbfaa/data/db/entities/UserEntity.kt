@@ -2,10 +2,10 @@ package com.dnar.dicodingsubmissionbfaa.data.db.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.dnar.dicodingsubmissionbfaa.util.TABLE_USERS_FAVORITE
+import com.dnar.dicodingsubmissionbfaa.util.USER_TABLE_NAME
 
 // Data Class User Entity; Keyword : Room
-@Entity(tableName = TABLE_USERS_FAVORITE)
+@Entity(tableName = USER_TABLE_NAME)
 data class UserEntity(
     @PrimaryKey(autoGenerate = false)
     val id: Int,

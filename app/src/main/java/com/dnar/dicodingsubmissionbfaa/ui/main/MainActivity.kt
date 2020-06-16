@@ -10,6 +10,7 @@ import com.dnar.dicodingsubmissionbfaa.data.model.ViewPlaceholder
 import com.dnar.dicodingsubmissionbfaa.databinding.*
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseActivity
 
+// MainActivity implements DaggerAppCompatActivity
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     lateinit var mDialog: SweetAlertDialog

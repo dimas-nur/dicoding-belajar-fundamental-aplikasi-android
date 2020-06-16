@@ -1,6 +1,5 @@
 package com.dnar.dicodingsubmissionbfaa.di.ui.main.profile
 
-import com.dnar.dicodingsubmissionbfaa.data.db.AppDatabase
 import com.dnar.dicodingsubmissionbfaa.data.network.api.ApiHelper
 import com.dnar.dicodingsubmissionbfaa.data.repositories.ProfileRepository
 import com.dnar.dicodingsubmissionbfaa.data.repositories.UserRepository

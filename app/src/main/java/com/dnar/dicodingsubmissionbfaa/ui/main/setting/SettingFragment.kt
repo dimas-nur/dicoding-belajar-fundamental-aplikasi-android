@@ -12,9 +12,11 @@ import com.dnar.dicodingsubmissionbfaa.databinding.FragmentSettingBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
 import com.dnar.dicodingsubmissionbfaa.util.ALARM_ID_REPEATING
 import com.dnar.dicodingsubmissionbfaa.util.SP_KEY_REMINDER
+import com.shashank.sony.fancytoastlib.FancyToast
 import java.util.*
 import javax.inject.Inject
 
+// Setting fragment implements dagger fragment
 class SettingFragment : BaseFragment<FragmentSettingBinding, SettingViewModel>() {
 
     @Inject
@@ -74,9 +76,27 @@ class SettingFragment : BaseFragment<FragmentSettingBinding, SettingViewModel>()
                         set(Calendar.SECOND, 0)
                     }
                 )
+
+                // Show toast
+                FancyToast.makeText(
+                    context,
+                    getString(R.string.setting_turn_on_reminder),
+                    FancyToast.LENGTH_SHORT,
+                    FancyToast.SUCCESS,
+                    false
+                ).show()
             } else {
                 // Delete reminder alarm
                 AlarmHelper.cancelAlarm(it, ALARM_ID_REPEATING)
+
+                // Show toast
+                FancyToast.makeText(
+                    context,
+                    getString(R.string.setting_turn_off_reminder),
+                    FancyToast.LENGTH_SHORT,
+                    FancyToast.SUCCESS,
+                    false
+                ).show()
             }
         }
     }

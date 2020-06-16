@@ -5,21 +5,17 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import cn.pedant.SweetAlert.SweetAlertDialog
 import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.adapter.UserSearchAdapter
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
 import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentHomeBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
-import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
 import com.dnar.dicodingsubmissionbfaa.util.*
 
 // Home fragment implements dagger fragment
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
     UserSearchAdapter.Listener {
-
-    private lateinit var mDialog: SweetAlertDialog
 
     private var rvUserSearchAdapter = UserSearchAdapter(this)
 
@@ -32,9 +28,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
 
         // Set condition PlaceholderView
         setContentPlaceholder(if (rvUserSearchAdapter.itemCount <= 0) 3 else 1)
-
-        // Set mDialog to get dialog from MainActivity
-        mDialog = (activity as MainActivity).mDialog
 
         // Configure ViewBinding
         mViewBinding.apply {

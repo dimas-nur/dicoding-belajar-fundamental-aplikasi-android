@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +23,13 @@
         </activity>
 
         <receiver android:name=".data.service.AlarmReceiver" />
+
+        <provider
+            android:name=".data.db.provider.UserContentProvider"
+            android:authorities="com.dnar.dicodingsubmissionbfaa"
+            android:exported="true"
+            android:readPermission="com.dnar.dicodingsubmissionbfaa.READ_DATABASE"
+            android:writePermission="com.dnar.dicodingsubmissionbfaa.WRITE_DATABASE" />
     </application>
 
 </manifest>

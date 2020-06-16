@@ -35,6 +35,9 @@
             android:name="user"
             app:argType="com.dnar.dicodingsubmissionbfaa.data.model.UserDetail"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_userDetailFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"

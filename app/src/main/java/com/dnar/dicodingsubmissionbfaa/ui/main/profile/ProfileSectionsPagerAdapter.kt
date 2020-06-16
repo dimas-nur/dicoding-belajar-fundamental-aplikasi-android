@@ -7,6 +7,7 @@ import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.model.UserDetail
 import com.dnar.dicodingsubmissionbfaa.ui.main.profile.follow.ProfileFollowFragment
 
+// ProfileSectionsPagerAdapter implements FragmentPagerAdapter
 class ProfileSectionsPagerAdapter(
     fm: FragmentManager,
     context: Fragment,

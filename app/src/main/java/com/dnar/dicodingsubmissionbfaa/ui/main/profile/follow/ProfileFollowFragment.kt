@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import cn.pedant.SweetAlert.SweetAlertDialog
 import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.adapter.UserFollowAdapter
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
@@ -13,14 +12,12 @@ import com.dnar.dicodingsubmissionbfaa.data.model.UserDetail
 import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentProfileFollowBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
-import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
 import com.dnar.dicodingsubmissionbfaa.ui.main.profile.ProfileFragmentDirections
 import com.dnar.dicodingsubmissionbfaa.util.*
 
+// Profile Follow fragment implements dagger fragment
 class ProfileFollowFragment : BaseFragment<FragmentProfileFollowBinding, ProfileFollowViewModel>(),
     UserFollowAdapter.Listener {
-
-    private lateinit var mDialog: SweetAlertDialog
 
     private var rvUserFollowAdapter = UserFollowAdapter(this)
     private var user: UserDetail? = null
@@ -51,9 +48,6 @@ class ProfileFollowFragment : BaseFragment<FragmentProfileFollowBinding, Profile
 
         // Set condition PlaceholderView
         setContentPlaceholder(1)
-
-        // Set mDialog to get dialog from MainActivity
-        mDialog = (activity as MainActivity).mDialog
 
         // Configure ViewBinding
         mViewBinding.apply {
@@ -159,7 +153,7 @@ class ProfileFollowFragment : BaseFragment<FragmentProfileFollowBinding, Profile
 
                                 if (user == null)
                                     showDialogWarning(mDialog, status.message ?: "Error", null)
-                                
+
                                 setContentPlaceholder(2)
                             }
                         }
