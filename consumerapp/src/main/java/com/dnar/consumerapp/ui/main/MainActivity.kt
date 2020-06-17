@@ -9,4 +9,20 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override var getLayoutId: Int = R.layout.activity_main
     override var getViewModel: Class<MainViewModel> = MainViewModel::class.java
 
+
+    // Function : for set toolbar
+    private fun setToolbar() {
+        mViewBinding.apply {
+            setSupportActionBar(mainToolbar)
+            mainToolbarTittle.text = getString(R.string.app_name)
+        }
+
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+    }
+
+    // Function : for change tittle toolbar
+    fun changeToolbarTitle(title: String) {
+        mViewBinding.mainToolbarTittle.text = title
+    }
+
 }
