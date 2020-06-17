@@ -102,7 +102,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(),
 
     override fun onUserClickListener(view: View, data: UserDetail) {
         val action = HomeFragmentDirections.actionHomeFragmentToProfileFragment(
-            data
+            data.login, data
         )
         view.changeNavigation(action)
     }

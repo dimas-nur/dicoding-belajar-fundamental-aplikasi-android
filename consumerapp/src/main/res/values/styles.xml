@@ -64,4 +64,12 @@
         <item name="android:textColor">@color/colorGreySoft1</item>
     </style>
 
+
+    <!-- Tab Layout -->
+    <style name="profile_tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/segoeui_semibold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
 </resources>

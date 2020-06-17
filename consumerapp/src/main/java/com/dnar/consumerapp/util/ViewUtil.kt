@@ -1,7 +1,5 @@
 package com.dnar.consumerapp.util
 
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.view.View
 import android.widget.ImageView
 import androidx.navigation.NavDirections
@@ -11,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.dnar.consumerapp.R
-import java.io.ByteArrayOutputStream
 
 
 // Util for view; Keyword : Util
@@ -67,10 +64,3 @@ fun ImageView.loadEclipseImage(url: String?) {
 fun View.changeNavigation(direction: NavDirections) {
     Navigation.findNavController(this).navigate(direction)
 }
-
-fun ImageView.toByteArray(): ByteArray {
-    val stream = ByteArrayOutputStream()
-    (this.drawable as BitmapDrawable).bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-    return stream.toByteArray()
-}
-

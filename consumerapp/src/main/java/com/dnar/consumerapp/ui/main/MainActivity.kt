@@ -10,6 +10,7 @@ import com.dnar.consumerapp.data.model.ViewPlaceholder
 import com.dnar.consumerapp.databinding.ActivityMainBinding
 import com.dnar.consumerapp.databinding.FragmentHomeBinding
 import com.dnar.consumerapp.databinding.FragmentProfileBinding
+import com.dnar.consumerapp.databinding.FragmentProfileFollowBinding
 import com.dnar.consumerapp.ui.base.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
@@ -112,6 +113,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                 binding.placeholder = data
             }
             is FragmentProfileBinding -> {
+                binding.placeholder = data
+            }
+            is FragmentProfileFollowBinding -> {
                 binding.placeholder = data
             }
         }

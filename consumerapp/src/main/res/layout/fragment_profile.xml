@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -54,64 +55,130 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/colorWhite"
-            android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_toolbar"
-            app:layout_scrollFlags="scroll|snap">
+            app:layout_constraintTop_toBottomOf="@+id/profile_toolbar">
 
-            <ImageView
-                android:id="@+id/profile_img_profile"
-                imageUrl="@{user.avatar_url}"
-                android:layout_width="125dp"
-                android:layout_height="125dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="15dp"
-                android:contentDescription="@string/profile_desc_image_profile" />
+            <ProgressBar
+                android:id="@+id/profile_progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="150dp"
+                android:visibility="gone" />
 
-            <TextView
-                android:id="@+id/profile_tv_name"
-                style="@style/profile_tv_tittle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{user.name}"
-                android:visibility="@{user.name != null ? View.VISIBLE : View.GONE}"
-                tools:visibility="visible" />
+            <include
+                layout="@layout/include_placeholder_view"
+                android:visibility="@{placeholder.show? View.VISIBLE : View.GONE}"
+                bind:data="@{placeholder}"
+                tools:visibility="gone" />
 
-            <TextView
-                android:id="@+id/profile_tv_username"
-                style="@style/profile_tv_subTittle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="@{user.login}"
-                android:visibility="@{user.login != null ? View.VISIBLE : View.GONE}"
-                tools:visibility="visible" />
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/profile_tv_company"
-                style="@style/profile_tv_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_user_company"
-                android:text="@{user.company}"
-                android:visibility="@{user.company != null ? View.VISIBLE : View.GONE}"
-                tools:visibility="visible" />
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/profile_appBarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="4dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <TextView
-                android:id="@+id/profile_tv_location"
-                style="@style/profile_tv_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_user_location"
-                android:text="@{user.location}"
-                android:visibility="@{user.location != null ? View.VISIBLE : View.GONE}"
-                tools:visibility="visible" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWhite"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="25dp"
+                        app:layout_scrollFlags="scroll|snap">
+
+                        <ImageView
+                            android:id="@+id/profile_img_profile"
+                            imageUrl="@{user.avatar_url}"
+                            android:layout_width="125dp"
+                            android:layout_height="125dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="15dp"
+                            android:contentDescription="@string/profile_desc_image_profile" />
+
+                        <TextView
+                            android:id="@+id/profile_tv_name"
+                            style="@style/profile_tv_tittle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{user.name}"
+                            android:visibility="@{user.name != null ? View.VISIBLE : View.GONE}"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/profile_tv_username"
+                            style="@style/profile_tv_subTittle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="@{user.login}"
+                            android:visibility="@{user.login != null ? View.VISIBLE : View.GONE}"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/profile_tv_company"
+                            style="@style/profile_tv_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_user_company"
+                            android:text="@{user.company}"
+                            android:visibility="@{user.company != null ? View.VISIBLE : View.GONE}"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/profile_tv_location"
+                            style="@style/profile_tv_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_user_location"
+                            android:text="@{user.location}"
+                            android:visibility="@{user.location != null ? View.VISIBLE : View.GONE}"
+                            tools:visibility="visible" />
+                    </LinearLayout>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/profile_tabLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:background="@color/colorWhite"
+                        app:tabIndicatorColor="@color/colorBlueSoft"
+                        app:tabSelectedTextColor="@color/colorBlueSoft"
+                        app:tabTextAppearance="@style/profile_tab_text"
+                        app:tabTextColor="@color/colorGreySoft2" />
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/profile_nestedScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/profile_viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </androidx.core.widget.NestedScrollView>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/profile_floatingAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="20dp"
+                    android:backgroundTint="#FF5252"
+                    app:borderWidth="0dp"
+                    tools:src="@drawable/ic_favorite_favorite_unfilled" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

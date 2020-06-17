@@ -7,6 +7,10 @@
 
         <variable
             name="user"
+            type="com.dnar.consumerapp.data.model.UserSearch" />
+
+        <variable
+            name="userDetail"
             type="com.dnar.consumerapp.data.model.UserDetail" />
     </data>
 
@@ -17,7 +21,7 @@
 
         <ImageView
             android:id="@+id/item_user_img_profile"
-            imageUrl="@{user.avatar_url}"
+            imageUrl="@{user.avatar_url ?? userDetail.avatar_url}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="12dp"
@@ -38,7 +42,7 @@
             android:layout_marginTop="3dp"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="@{user.name ?? user.login}"
+            android:text="@{user.login ?? (userDetail.name ?? userDetail.login)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/item_user_img_profile"
             app:layout_constraintTop_toTopOf="parent"
@@ -51,7 +55,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="@{user.login}"
+            android:text="@{user.type ?? userDetail.login}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/itemUser_tv_name"
             app:layout_constraintTop_toBottomOf="@+id/itemUser_tv_name"

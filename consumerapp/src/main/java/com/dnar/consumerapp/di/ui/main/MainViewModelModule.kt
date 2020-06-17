@@ -5,6 +5,7 @@ import com.dnar.consumerapp.di.viewmodel.ViewModelKey
 import com.dnar.consumerapp.ui.main.MainViewModel
 import com.dnar.consumerapp.ui.main.home.HomeViewModel
 import com.dnar.consumerapp.ui.main.profile.ProfileViewModel
+import com.dnar.consumerapp.ui.main.profile.follow.ProfileFollowViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -27,5 +28,10 @@ abstract class MainViewModelModule {
     @IntoMap
     @ViewModelKey(ProfileViewModel::class)
     abstract fun bindProfileViewModel(profileViewModel: ProfileViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ProfileFollowViewModel::class)
+    abstract fun bindProfileFollowViewModel(profileFollowViewModel: ProfileFollowViewModel): ViewModel
 
 }

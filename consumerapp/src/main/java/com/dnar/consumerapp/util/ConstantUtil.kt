@@ -16,21 +16,6 @@ const val ARG_FRAGMENT_VALUE_USERNAME = "fragment_value_username"
 const val ARG_FRAGMENT_VALUE_USER = "fragment_value_user"
 
 
-/* --- Alarm --- */
-const val ALARM_ID_REPEATING = 100
-const val ALARM_CHANNEL_ID = "channel_reminder"
-const val ALARM_CHANNEL_NAME = "Reminder Channel"
-const val ALARM_TITTLE = "alarm_tittle"
-const val ALARM_MESSAGE = "alarm_message"
-
-
-/* --- SharedPreferences --- */
-const val SP_NAME = "dicoding_shared_preferences"
-const val SP_KEY_REMINDER = "shared_preferences_reminder"
-
-
-/* --- Database --- */
-const val DATABASE_NAME = "DicodingSubmissionBFAA.db"
 const val DATABASE_AUTHORITY = "com.dnar.dicodingsubmissionbfaa"
 const val DATABASE_SCHEME = "content"
 const val DATABASE_CONTENT_URI = "$DATABASE_SCHEME://$DATABASE_AUTHORITY"

@@ -6,15 +6,15 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.dnar.consumerapp.R
-import com.dnar.consumerapp.data.model.UserDetail
+import com.dnar.consumerapp.data.model.UserSearch
 import com.dnar.consumerapp.databinding.ItemUserBinding
 
-// UserFavorite Recycler View Adapter; Keyword : Adapter
-class UserFavoriteAdapter(
+// UserFollow Recycler View Adapter; Keyword : Adapter
+class UserFollowAdapter(
     private val listener: Listener
-) : RecyclerView.Adapter<UserFavoriteAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<UserFollowAdapter.ViewHolder>() {
 
-    private var list: List<UserDetail> = listOf()
+    private var list: List<UserSearch> = listOf()
 
     inner class ViewHolder(val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -34,20 +34,20 @@ class UserFavoriteAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = list[position]
 
-        holder.binding.userDetail = data
+        holder.binding.user = data
         holder.itemView.setOnClickListener {
             listener.onUserClickListener(it, data)
         }
     }
 
     // Function : for change data in adapter
-    fun setList(list: List<UserDetail>) {
+    fun setList(list: List<UserSearch>) {
         this.list = list
         notifyDataSetChanged()
     }
 
     // Interface : for listener onClick item
     interface Listener {
-        fun onUserClickListener(view: View, data: UserDetail)
+        fun onUserClickListener(view: View, data: UserSearch)
     }
 }

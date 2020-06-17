@@ -154,6 +154,7 @@ fun ContentValues.toUserEntity(): UserEntity =
         url = getAsString(USER_URL)
     )
 
+// Function : for convert from Cursor to ListUserDetail
 fun Cursor.toListUserEntity(): ArrayList<UserEntity> {
     val userEntityList = ArrayList<UserEntity>()
 
@@ -167,6 +168,7 @@ fun Cursor.toListUserEntity(): ArrayList<UserEntity> {
     return userEntityList
 }
 
+// Function : for convert from Cursor to UserDetail
 fun Cursor.toUserEntity(): UserEntity =
     UserEntity(
         getInt(getColumnIndexOrThrow(USER_ID)),
