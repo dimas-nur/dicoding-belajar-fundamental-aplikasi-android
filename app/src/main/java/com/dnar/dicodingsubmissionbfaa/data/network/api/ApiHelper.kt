@@ -28,7 +28,6 @@ interface ApiHelper {
             val okHttp = OkHttpClient.Builder()
                 .addInterceptor(BasicInterceptor(ACCESS_TOKEN))
                 .addInterceptor(logger)
-                .connectTimeout(30, TimeUnit.SECONDS)
                 .build()
 
             return Retrofit.Builder()

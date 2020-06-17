@@ -1,2 +1,3 @@
+include ':consumerapp'
 rootProject.name='Dicoding Submission BFAA'
 include ':app'
