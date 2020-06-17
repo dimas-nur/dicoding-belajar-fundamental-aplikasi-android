@@ -49,4 +49,9 @@ abstract class BaseFragment<T : ViewDataBinding, VM : ViewModel> : DaggerFragmen
     // Function : for change tittle toolbar
     private fun setToolbar(tittle: String) = (activity as MainActivity).changeToolbarTitle(tittle)
 
+    // Function : for set content placeholder view
+    fun setContentPlaceholder(condition: Int) {
+        (activity as MainActivity).setContentPlaceholder(condition, mViewBinding)
+    }
+
 }
