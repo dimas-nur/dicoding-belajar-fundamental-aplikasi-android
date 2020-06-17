@@ -1,13 +1,12 @@
 package com.dnar.consumerapp.ui.main
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.dnar.consumerapp.R
+import com.dnar.consumerapp.databinding.ActivityMainBinding
+import com.dnar.consumerapp.ui.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+    override var getLayoutId: Int = R.layout.activity_main
+    override var getViewModel: Class<MainViewModel> = MainViewModel::class.java
+
 }
