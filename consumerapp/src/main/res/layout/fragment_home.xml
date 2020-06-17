@@ -13,43 +13,42 @@
             type="com.dnar.consumerapp.data.model.ViewPlaceholder" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhiteSoft">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/home_appBarLayout"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/home_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/home_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"
-                app:layout_scrollFlags="scroll|enterAlways"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:contentDescription="@string/home_desc_icon_dicoding"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/img_dicoding"
-                    android:tint="@color/colorWhite" />
-            </androidx.appcompat.widget.Toolbar>
-        </com.google.android.material.appbar.AppBarLayout>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/home_desc_icon_dicoding"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_dicoding"
+                android:tint="@color/colorWhite" />
+        </androidx.appcompat.widget.Toolbar>
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:orientation="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_toolbar">
 
             <ProgressBar
                 android:id="@+id/home_progressBar"
@@ -86,5 +85,5 @@
 
             </androidx.core.widget.NestedScrollView>
         </LinearLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

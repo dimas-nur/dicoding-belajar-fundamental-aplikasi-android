@@ -190,27 +190,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
                         checkIsFavorite()
                     })
             }
-
-//                .subscribe({
-//                    userEntity = data
-//
-//                    // Success add to database
-//                    FancyToast.makeText(
-//                        context,
-//                        getString(R.string.favorite_success_add),
-//                        FancyToast.LENGTH_SHORT,
-//                        FancyToast.SUCCESS,
-//                        false
-//                    ).show()
-//                    checkIsFavorite()
-//                }, {
-//                    userEntity = null
-//
-//                    // Failed add to database
-//                    showDialogWarning(mDialog, it.message, null)
-//                    checkIsFavorite()
-//                })
-
         }
     }
 
@@ -235,27 +214,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
                         checkIsFavorite()
                     })
             }
-
-//                .subscribe({
-//                    userEntity = null
-//
-//                    // Success delete from database
-//                    FancyToast.makeText(
-//                        context,
-//                        getString(R.string.favorite_success_deleted),
-//                        FancyToast.LENGTH_SHORT,
-//                        FancyToast.SUCCESS,
-//                        false
-//                    ).show()
-//                    checkIsFavorite()
-//                }, {
-//                    userEntity = data
-//
-//                    // Failed delete from database
-//                    showDialogWarning(mDialog, it.message, null)
-//                    checkIsFavorite()
-//                })
-
         }
     }
 }

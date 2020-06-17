@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.viewbinding.ViewBinding
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.dnar.consumerapp.R
 import com.dnar.consumerapp.data.model.ViewPlaceholder
 import com.dnar.consumerapp.databinding.ActivityMainBinding
@@ -13,11 +14,18 @@ import com.dnar.consumerapp.ui.base.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
+    lateinit var mDialog: SweetAlertDialog
+
     override var getLayoutId: Int = R.layout.activity_main
     override var getViewModel: Class<MainViewModel> = MainViewModel::class.java
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Set mDialog
+        mDialog = SweetAlertDialog(this).apply {
+            setCancelable(false)
+        }
 
         setToolbar()
         setUpNavigation()

@@ -1,11 +1,10 @@
-package com.dnar.dicodingsubmissionbfaa.data.network.api
+package com.dnar.consumerapp.data.network.api
 
-import com.dnar.dicodingsubmissionbfaa.data.model.UserDetail
-import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
-import com.dnar.dicodingsubmissionbfaa.data.model.response.SearchResponse
-import com.dnar.dicodingsubmissionbfaa.data.network.setting.BasicInterceptor
-import com.dnar.dicodingsubmissionbfaa.util.ACCESS_TOKEN
-import com.dnar.dicodingsubmissionbfaa.util.BASE_URL
+import com.dnar.consumerapp.data.model.UserDetail
+import com.dnar.consumerapp.data.model.UserSearch
+import com.dnar.consumerapp.data.network.setting.BasicInterceptor
+import com.dnar.consumerapp.util.ACCESS_TOKEN
+import com.dnar.consumerapp.util.BASE_URL
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,7 +13,6 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 // Api Interface; Keyword : Retrofit2
 interface ApiHelper {
@@ -38,12 +36,6 @@ interface ApiHelper {
                 .create(ApiHelper::class.java)
         }
     }
-
-    /* --- User --- */
-    @GET("search/users")
-    fun getSearchUser(
-        @Query("q") keyword: String
-    ): Observable<SearchResponse>
 
     @GET("users/{username}")
     fun getUser(

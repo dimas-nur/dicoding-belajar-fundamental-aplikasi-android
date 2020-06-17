@@ -4,6 +4,13 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <permission
+        android:name="com.dnar.dicodingsubmissionbfaa.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.dnar.dicodingsubmissionbfaa.WRITE_DATABASE"
+        android:protectionLevel="normal" />
+
     <application
         android:name=".ui.base.BaseApplication"
         android:allowBackup="true"
