@@ -1,7 +1,8 @@
-package com.dnar.consumerapp
+package com.dnar.consumerapp.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.dnar.consumerapp.R
 
 class MainActivity : AppCompatActivity() {
 
