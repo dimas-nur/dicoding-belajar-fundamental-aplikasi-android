@@ -46,7 +46,7 @@ class SplashFragment : DaggerFragment() {
                 AlarmHelper.createAlarm(
                     it,
                     getString(R.string.app_name),
-                    "Let's find popular user on Github!",
+                    getString(R.string.reminder_message),
                     ALARM_ID_REPEATING,
                     Calendar.getInstance().apply {
                         set(Calendar.HOUR_OF_DAY, 9)

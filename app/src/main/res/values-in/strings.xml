@@ -55,5 +55,6 @@
 
     <!-- Item User Layout Resource -->
     <string name="item_user_desc_image_profile">Foto Profil</string>
+    <string name="reminder_message">Ayo temukan pengguna populer di Github!</string>
 
 </resources>

@@ -1,5 +1,9 @@
 package com.dnar.dicodingsubmissionbfaa.util
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
 import androidx.navigation.NavDirections
@@ -8,6 +12,8 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.dnar.dicodingsubmissionbfaa.R
 
 
@@ -44,7 +50,7 @@ fun ImageView.loadEclipseImage(url: String?) {
     val option = RequestOptions()
         .error(R.drawable.img_picture)
         .placeholder(loader)
-        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
         .circleCrop()
 
     try {
@@ -63,4 +69,29 @@ fun ImageView.loadEclipseImage(url: String?) {
 // Function : for change navigation of NavController
 fun View.changeNavigation(direction: NavDirections) {
     Navigation.findNavController(this).navigate(direction)
+}
+
+fun String.toBitmap(context: Context): Bitmap {
+    var bitmap: Bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.img_picture)
+
+    val option = RequestOptions()
+        .error(R.drawable.img_picture)
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+    try {
+        Glide.with(context)
+            .setDefaultRequestOptions(option)
+            .asBitmap()
+            .load(this)
+            .into(object : CustomTarget<Bitmap>() {
+                override fun onLoadCleared(placeholder: Drawable?) {}
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    bitmap = resource
+                }
+            })
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+
+    return bitmap
 }

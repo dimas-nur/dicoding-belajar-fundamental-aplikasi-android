@@ -23,15 +23,17 @@ class UserRepository @Inject constructor() {
         val cursor = context.contentResolver
             .query(uri, null, null, null, null)
 
+        liveData.postValue(null)
+
         cursor?.let {
-            if (cursor.moveToFirst()) {
+            if (it.moveToFirst()) {
                 liveData.postValue(Status.success(it.toUserDetail()))
             } else {
                 liveData.postValue(Status.error("Error", null))
             }
-
-            cursor.close()
         }
+
+        cursor?.close()
 
         return liveData
     }
@@ -43,7 +45,11 @@ class UserRepository @Inject constructor() {
         val cursor =
             context.contentResolver.insert(USER_CONTENT_URI.toUri(), user.toContentValues())
 
-        cursor?.let { liveData.postValue(1) }
+        if (cursor != null) {
+            liveData.postValue(1)
+        } else {
+            liveData.postValue(null)
+        }
 
         return liveData
     }
@@ -56,7 +62,7 @@ class UserRepository @Inject constructor() {
         val cursor =
             context.contentResolver.delete(uri, null, null)
 
-        cursor.let { liveData.postValue(it.toLong()) }
+        liveData.postValue(cursor.toLong())
 
         return liveData
     }
@@ -67,10 +73,12 @@ class UserRepository @Inject constructor() {
 
         val cursor = context.contentResolver
             .query(USER_CONTENT_URI.toUri(), null, null, null, null)
-        cursor?.let {
-            liveData.postValue(Status.success(it.toListUserDetail()))
 
+        if (cursor != null) {
+            liveData.postValue(Status.success(cursor.toListUserDetail()))
             cursor.close()
+        } else {
+            liveData.postValue(Status.error("Error", null))
         }
 
         return liveData

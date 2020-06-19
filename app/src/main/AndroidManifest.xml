@@ -3,7 +3,6 @@
     package="com.dnar.dicodingsubmissionbfaa">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <permission
         android:name="com.dnar.dicodingsubmissionbfaa.READ_DATABASE"
         android:protectionLevel="normal" />
@@ -20,7 +19,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +26,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".ui.widget.UserWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/user_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".ui.widget.UserWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <receiver android:name=".data.service.AlarmReceiver" />
 

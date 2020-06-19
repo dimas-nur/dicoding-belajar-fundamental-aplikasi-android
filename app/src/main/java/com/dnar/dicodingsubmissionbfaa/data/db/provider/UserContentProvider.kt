@@ -1,11 +1,13 @@
 package com.dnar.dicodingsubmissionbfaa.data.db.provider
 
+import android.app.Application
 import android.content.ContentValues
 import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
 import androidx.core.net.toUri
 import com.dnar.dicodingsubmissionbfaa.data.db.AppDatabase
+import com.dnar.dicodingsubmissionbfaa.ui.widget.UserWidget
 import com.dnar.dicodingsubmissionbfaa.util.DATABASE_AUTHORITY
 import com.dnar.dicodingsubmissionbfaa.util.USER_CONTENT_URI
 import com.dnar.dicodingsubmissionbfaa.util.USER_TABLE_NAME
@@ -18,6 +20,9 @@ class UserContentProvider : DaggerContentProvider() {
 
     @Inject
     lateinit var db: AppDatabase
+
+    @Inject
+    lateinit var application: Application
 
     companion object {
 
@@ -60,6 +65,9 @@ class UserContentProvider : DaggerContentProvider() {
 
         context?.contentResolver?.notifyChange(USER_CONTENT_URI.toUri(), null)
 
+        // Refresh data in UserWidget
+        refreshWidgetUser()
+
         return Uri.parse("$USER_CONTENT_URI/$added")
     }
 
@@ -84,11 +92,19 @@ class UserContentProvider : DaggerContentProvider() {
 
         context?.contentResolver?.notifyChange(USER_CONTENT_URI.toUri(), null)
 
+        // Refresh data in UserWidget
+        refreshWidgetUser()
+
         return deleted
     }
 
     override fun getType(uri: Uri): String? {
         // Implement this to handle requests for the MIME type of the data at the given URI
         return null
+    }
+
+    private fun refreshWidgetUser() {
+        // Refresh data in UserWidget
+        UserWidget.sendRefreshBroadcast(application)
     }
 }

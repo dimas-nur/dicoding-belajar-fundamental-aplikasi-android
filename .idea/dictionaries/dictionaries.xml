@@ -1,5 +1,5 @@
 <component name="ProjectDictionaryState">
-  <dictionary name="Dimas">
+  <dictionary name="dictionaries">
     <words>
       <w>alif</w>
       <w>bfaa</w>
@@ -11,8 +11,10 @@
       <w>doesn</w>
       <w>gravatar</w>
       <w>hireable</w>
+      <w>remoteviews</w>
       <w>segoeui</w>
       <w>semibold</w>
+      <w>stackwidget</w>
     </words>
   </dictionary>
 </component>

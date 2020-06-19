@@ -56,12 +56,26 @@
         <item name="android:fontFamily">@font/segoeui_semibold</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/colorGreyPrimary</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="include_tv_subTittle">
         <item name="android:fontFamily">@font/segoeui</item>
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/colorGreySoft1</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="widget_tv_tittle">
+        <item name="android:fontFamily">@font/segoeui_semibold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorWhiteSoft</item>
+    </style>
+
+    <style name="widget_tv_subTittle">
+        <item name="android:fontFamily">@font/segoeui</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/colorWhiteSoft</item>
     </style>
 
 
