@@ -4,12 +4,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.dnar.dicodingsubmissionbfaa.R
+import com.dnar.dicodingsubmissionbfaa.data.model.UserDetail
 import com.dnar.dicodingsubmissionbfaa.ui.main.profile.follow.ProfileFollowFragment
 
+// ProfileSectionsPagerAdapter implements FragmentPagerAdapter
 class ProfileSectionsPagerAdapter(
     fm: FragmentManager,
     context: Fragment,
-    private val username: String
+    private val username: String,
+    private val user: UserDetail?
 ) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     private val tabTittles = listOf(
@@ -18,7 +21,7 @@ class ProfileSectionsPagerAdapter(
     )
 
     override fun getItem(position: Int): Fragment =
-        ProfileFollowFragment.newInstance(position, username)
+        ProfileFollowFragment.newInstance(position, username, user)
 
     override fun getPageTitle(position: Int): CharSequence? =
         tabTittles[position]

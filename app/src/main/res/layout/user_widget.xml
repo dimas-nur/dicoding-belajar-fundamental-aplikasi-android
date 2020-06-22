@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/userWidget_tittle"
+        style="@style/home_tv_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_widget_empty"
+        android:backgroundTint="@color/colorPrimary"
+        android:padding="5dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        tools:text="@string/home_favorite" />
+
+    <StackView
+        android:id="@+id/userWidget_stack_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/userWidget_tittle"
+        android:loopViews="true"
+        tools:listitem="@layout/user_widget_item" />
+
+    <LinearLayout
+        android:id="@+id/userWidget_empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/userWidget_tittle"
+        android:background="@drawable/bg_widget_empty"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/placeholder_desc_image_illustration"
+            android:scaleType="centerInside"
+            android:src="@drawable/il_home_search_not_found"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/userWidget_tv_tittle"
+            style="@style/include_tv_tittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="14sp"
+            tools:text="@string/placeholder_error_tittle" />
+
+        <TextView
+            android:id="@+id/userWidget_tv_message"
+            style="@style/include_tv_subTittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            tools:text="@string/placeholder_not_found_favorite_message" />
+    </LinearLayout>
+</RelativeLayout>

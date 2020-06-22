@@ -1,26 +1,26 @@
 package com.dnar.dicodingsubmissionbfaa.ui.main.profile.follow
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import cn.pedant.SweetAlert.SweetAlertDialog
 import com.dnar.dicodingsubmissionbfaa.R
 import com.dnar.dicodingsubmissionbfaa.data.adapter.UserFollowAdapter
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
+import com.dnar.dicodingsubmissionbfaa.data.model.UserDetail
 import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
-import com.dnar.dicodingsubmissionbfaa.data.util.*
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentProfileFollowBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
-import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
 import com.dnar.dicodingsubmissionbfaa.ui.main.profile.ProfileFragmentDirections
+import com.dnar.dicodingsubmissionbfaa.util.*
 
+// Profile Follow fragment implements dagger fragment
 class ProfileFollowFragment : BaseFragment<FragmentProfileFollowBinding, ProfileFollowViewModel>(),
     UserFollowAdapter.Listener {
 
-    private lateinit var mDialog: SweetAlertDialog
-
     private var rvUserFollowAdapter = UserFollowAdapter(this)
+    private var user: UserDetail? = null
 
     override var getLayoutId: Int = R.layout.fragment_profile_follow
     override var getViewModel: Class<ProfileFollowViewModel> =
@@ -30,10 +30,11 @@ class ProfileFollowFragment : BaseFragment<FragmentProfileFollowBinding, Profile
     companion object {
 
         // Function : for create new instance ProfileFollowFragment and pass value
-        fun newInstance(key: Int, username: String): ProfileFollowFragment {
+        fun newInstance(key: Int, username: String, user: UserDetail?): ProfileFollowFragment {
             val bundle = Bundle().apply {
                 putInt(ARG_FRAGMENT_KEY, key)
-                putString(ARG_FRAGMENT_VALUE, username)
+                putString(ARG_FRAGMENT_VALUE_USERNAME, username)
+                putParcelable(ARG_FRAGMENT_VALUE_USER, user)
             }
 
             return ProfileFollowFragment().apply {
@@ -48,9 +49,6 @@ class ProfileFollowFragment : BaseFragment<FragmentProfileFollowBinding, Profile
         // Set condition PlaceholderView
         setContentPlaceholder(1)
 
-        // Set mDialog to get dialog from MainActivity
-        mDialog = (activity as MainActivity).mDialog
-
         // Configure ViewBinding
         mViewBinding.apply {
 
@@ -59,12 +57,16 @@ class ProfileFollowFragment : BaseFragment<FragmentProfileFollowBinding, Profile
                 if (getInt(ARG_FRAGMENT_KEY) == 0) {
 
                     // Observe DataFollowers and set data into RecyclerViewAdapter
-                    getString(ARG_FRAGMENT_VALUE)?.let { observeFollowers(it) }
+                    getString(ARG_FRAGMENT_VALUE_USERNAME)?.let { observeFollowers(it) }
                 } else {
 
                     // Observe DataFollowing and set data into RecyclerViewAdapter
-                    getString(ARG_FRAGMENT_VALUE)?.let { observeFollowing(it) }
+                    getString(ARG_FRAGMENT_VALUE_USERNAME)?.let { observeFollowing(it) }
                 }
+
+                // Get data user from arguments
+                user = getParcelable(ARG_FRAGMENT_VALUE_USER)
+                Log.d("TAG", "onViewCreated: $user")
             }
 
             // Set RecyclerViewAdapter
@@ -105,7 +107,9 @@ class ProfileFollowFragment : BaseFragment<FragmentProfileFollowBinding, Profile
                                 // Hide ProgressBar and show warning dialog
                                 mViewBinding.profileFollowProgressBar.hide()
 
-                                showDialogWarning(mDialog, status.message ?: "Error", null)
+                                if (user == null)
+                                    showDialogWarning(mDialog, status.message ?: "Error", null)
+
                                 setContentPlaceholder(2)
                             }
                         }
@@ -147,7 +151,9 @@ class ProfileFollowFragment : BaseFragment<FragmentProfileFollowBinding, Profile
                                 // Hide ProgressBar and show warning dialog
                                 mViewBinding.profileFollowProgressBar.hide()
 
-                                showDialogWarning(mDialog, status.message ?: "Error", null)
+                                if (user == null)
+                                    showDialogWarning(mDialog, status.message ?: "Error", null)
+
                                 setContentPlaceholder(2)
                             }
                         }
@@ -157,7 +163,7 @@ class ProfileFollowFragment : BaseFragment<FragmentProfileFollowBinding, Profile
     }
 
     override fun onUserClickListener(view: View, data: UserSearch) {
-        val action = ProfileFragmentDirections.actionUserDetailFragmentSelf(data.login)
+        val action = ProfileFragmentDirections.actionUserDetailFragmentSelf(data.login, null)
         view.changeNavigation(action)
     }
 }

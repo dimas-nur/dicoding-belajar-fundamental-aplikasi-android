@@ -1,7 +1,9 @@
 package com.dnar.dicodingsubmissionbfaa.data.repositories
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.dnar.dicodingsubmissionbfaa.data.db.entities.UserEntity
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
 import com.dnar.dicodingsubmissionbfaa.data.model.UserDetail
 import com.dnar.dicodingsubmissionbfaa.data.model.UserSearch
@@ -14,7 +16,8 @@ import javax.inject.Inject
 
 // Profile Repository; Keyword : Repository
 class ProfileRepository @Inject constructor(
-    val api: ApiHelper
+    private val api: ApiHelper,
+    private val userRepository: UserRepository
 ) {
 
     private val compositeDisposable = CompositeDisposable()
@@ -93,6 +96,18 @@ class ProfileRepository @Inject constructor(
 
         return liveData
     }
+
+    // Function : for check is data stored in database ?
+    fun checkFavoriteUser(userId: Int, context: Context) =
+        userRepository.checkFavoriteUser(userId, context)
+
+    // Function : for save data into database
+    fun addFavoriteUser(user: UserEntity, context: Context) =
+        userRepository.addFavoriteUser(user, context)
+
+    // Function : for delete data in database
+    fun deleteFavoriteUser(user: UserEntity, context: Context) =
+        userRepository.deleteFavoriteUser(user, context)
 
     // Function : for dispose profile repository composite
     fun disposeComposite() {

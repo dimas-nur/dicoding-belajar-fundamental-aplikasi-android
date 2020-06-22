@@ -38,10 +38,10 @@
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
+                android:contentDescription="@string/profile_desc_button_back"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_all_arrow"
-                android:tint="@color/colorWhite"
-                android:contentDescription="@string/profile_desc_button_back" />
+                android:tint="@color/colorWhite" />
 
             <TextView
                 android:id="@+id/profile_toolbar_tittle"
@@ -69,7 +69,7 @@
                 android:visibility="gone" />
 
             <include
-                layout="@layout/include_home_illustration"
+                layout="@layout/include_placeholder_view"
                 android:visibility="@{placeholder.show? View.VISIBLE : View.GONE}"
                 bind:data="@{placeholder}"
                 tools:visibility="gone" />
@@ -168,6 +168,16 @@
                         android:layout_height="match_parent" />
 
                 </androidx.core.widget.NestedScrollView>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/profile_floatingAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="20dp"
+                    android:backgroundTint="#FF5252"
+                    app:borderWidth="0dp"
+                    tools:src="@drawable/ic_favorite_favorite_unfilled" />
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

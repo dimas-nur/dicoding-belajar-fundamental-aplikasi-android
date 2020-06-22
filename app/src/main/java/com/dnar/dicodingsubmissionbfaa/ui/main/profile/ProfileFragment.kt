@@ -1,22 +1,22 @@
 package com.dnar.dicodingsubmissionbfaa.ui.main.profile
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import cn.pedant.SweetAlert.SweetAlertDialog
 import com.dnar.dicodingsubmissionbfaa.R
+import com.dnar.dicodingsubmissionbfaa.data.db.entities.UserEntity
 import com.dnar.dicodingsubmissionbfaa.data.model.Status
-import com.dnar.dicodingsubmissionbfaa.data.util.hide
-import com.dnar.dicodingsubmissionbfaa.data.util.show
-import com.dnar.dicodingsubmissionbfaa.data.util.showDialogWarning
 import com.dnar.dicodingsubmissionbfaa.databinding.FragmentProfileBinding
 import com.dnar.dicodingsubmissionbfaa.ui.base.BaseFragment
-import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
+import com.dnar.dicodingsubmissionbfaa.util.*
+import com.shashank.sony.fancytoastlib.FancyToast
 
+// Profile fragment implements dagger fragment
 class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>() {
 
-    private lateinit var mDialog: SweetAlertDialog
+    private var userEntity: UserEntity? = null
 
     override var getLayoutId: Int = R.layout.fragment_profile
     override var getViewModel: Class<ProfileViewModel> = ProfileViewModel::class.java
@@ -28,30 +28,64 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
         // Set condition PlaceholderView
         setContentPlaceholder(1)
 
-        // Set mDialog to get dialog from MainActivity
-        mDialog = (activity as MainActivity).mDialog
-
         // Configure ViewBinding
         mViewBinding.apply {
 
             // Get data from arguments
             arguments?.let {
+                val user = ProfileFragmentArgs.fromBundle(it).user
                 val username = ProfileFragmentArgs.fromBundle(it).username
-                observeDetail(username)
+
+                if (user != null) {
+                    setContentPlaceholder(1)
+
+                    // Observe is favorite user ?
+                    context?.let { context -> observeCheckFavoriteUser(user.id, context) }
+                    this.user = user
+                } else {
+                    observeDetail(username)
+                }
 
                 // Set ViewPagerAdapter
                 profileViewPager.adapter =
                     ProfileSectionsPagerAdapter(
                         childFragmentManager,
                         this@ProfileFragment,
-                        username
+                        username,
+                        user
                     )
                 profileTabLayout.setupWithViewPager(profileViewPager)
+            }
+
+            profileToolbar.apply {
+                inflateMenu(R.menu.main_menu)
+                menu.removeItem(R.id.action_home_favorite)
+                setOnMenuItemClickListener {
+                    when (it.itemId) {
+                        R.id.action_home_setting -> {
+                            val action =
+                                ProfileFragmentDirections.actionUserDetailFragmentToSettingFragment()
+                            view.changeNavigation(action)
+                        }
+                    }
+                    false
+                }
             }
 
             // Set button BackToolbar onClickListener
             profileBtnBack.setOnClickListener {
                 activity?.onBackPressed()
+            }
+
+            // Set button FloatingAction onClickListener
+            profileFloatingAction.setOnClickListener {
+                if (userEntity != null) {
+                    // Delete from favorite user
+                    deleteFavorite()
+                } else {
+                    // Add to favorite user
+                    addFavorite()
+                }
             }
         }
     }
@@ -68,12 +102,16 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
                     it?.let { status ->
                         when (status.status) {
                             Status.StatusType.SUCCESS -> {
-
-                                // Hide ProgressBar and set data in ViewBinding
-                                profileProgressBar.hide()
-
                                 it.data?.let { data ->
                                     setContentPlaceholder(1)
+
+                                    // Observe is favorite user ?
+                                    context?.let { context ->
+                                        observeCheckFavoriteUser(
+                                            data.id,
+                                            context
+                                        )
+                                    }
                                     user = data
                                 }
                             }
@@ -88,6 +126,94 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>()
                         }
                     }
                 })
+        }
+    }
+
+    // Function : for set floating action button state
+    private fun checkIsFavorite() {
+        val drawable =
+            if (userEntity != null) resources.getDrawable(
+                R.drawable.ic_favorite_favorite_filled,
+                null
+            ) else resources.getDrawable(R.drawable.ic_favorite_favorite_unfilled, null)
+
+        mViewBinding.apply {
+            profileFloatingAction.setImageDrawable(drawable)
+
+            // Hide ProgressBar and
+            if (profileProgressBar.isShown)
+                profileProgressBar.hide()
+        }
+    }
+
+    // Function : for observe data is favorite user ?
+    private fun observeCheckFavoriteUser(userId: Int, context: Context) {
+        mViewBinding.apply {
+            mViewModel.checkFavoriteUser(userId, context)
+                .observe(viewLifecycleOwner, Observer {
+                    it?.let { status ->
+                        when (status.status) {
+                            Status.StatusType.SUCCESS -> {
+                                it.data?.let { data ->
+                                    userEntity = data
+                                }
+                            }
+                            Status.StatusType.ERROR -> {
+                                userEntity = null
+                            }
+                        }
+
+                        checkIsFavorite()
+                    }
+                })
+        }
+    }
+
+    // Function : for add user favorite to database
+    private fun addFavorite() {
+        mViewBinding.user?.toUserEntity()?.let { data ->
+            context?.let { context ->
+                mViewModel.addFavoriteUser(data, context)
+                    .observe(viewLifecycleOwner, Observer {
+                        it?.let {
+                            userEntity = data
+
+                            // Success add to database
+                            FancyToast.makeText(
+                                context,
+                                getString(R.string.favorite_success_add),
+                                FancyToast.LENGTH_SHORT,
+                                FancyToast.SUCCESS,
+                                false
+                            ).show()
+                        }
+                        checkIsFavorite()
+                    })
+            }
+        }
+    }
+
+    // Function : for delete user favorite to database
+    private fun deleteFavorite() {
+        mViewBinding.user?.toUserEntity()?.let { data ->
+            context?.let { context ->
+                mViewModel.deleteFavoriteUser(data, context)
+                    .observe(viewLifecycleOwner, Observer {
+                        it?.let {
+                            userEntity = null
+
+                            // Success delete from database
+                            FancyToast.makeText(
+                                context,
+                                getString(R.string.favorite_success_deleted),
+                                FancyToast.LENGTH_SHORT,
+                                FancyToast.SUCCESS,
+                                false
+                            ).show()
+                        }
+                        checkIsFavorite()
+                    })
+            }
         }
     }
 }

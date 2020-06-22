@@ -1,5 +1,6 @@
 package com.dnar.dicodingsubmissionbfaa.di.app
 
+import com.dnar.dicodingsubmissionbfaa.data.db.provider.UserContentProvider
 import com.dnar.dicodingsubmissionbfaa.di.ui.main.MainActivityBuilderModule
 import com.dnar.dicodingsubmissionbfaa.di.ui.main.MainModule
 import com.dnar.dicodingsubmissionbfaa.di.ui.main.MainViewModelModule
@@ -19,5 +20,8 @@ abstract class ActivityBuilderModule {
         ]
     )
     abstract fun contributeMainActivity(): MainActivity
+
+    @ContributesAndroidInjector
+    abstract fun contributeUserContentProvider(): UserContentProvider
 
 }

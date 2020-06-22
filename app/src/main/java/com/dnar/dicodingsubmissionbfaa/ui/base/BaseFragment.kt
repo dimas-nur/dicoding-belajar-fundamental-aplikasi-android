@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.dnar.dicodingsubmissionbfaa.di.viewmodel.ViewModelProviderFactory
 import com.dnar.dicodingsubmissionbfaa.ui.main.MainActivity
 import dagger.android.support.DaggerFragment
@@ -23,6 +24,7 @@ abstract class BaseFragment<T : ViewDataBinding, VM : ViewModel> : DaggerFragmen
 
     lateinit var mViewBinding: T
     lateinit var mViewModel: VM
+    lateinit var mDialog: SweetAlertDialog
 
     abstract var getLayoutId: Int
     abstract var getViewModel: Class<VM>
@@ -37,6 +39,9 @@ abstract class BaseFragment<T : ViewDataBinding, VM : ViewModel> : DaggerFragmen
         // Set View Binding & View Model
         mViewBinding = DataBindingUtil.inflate(inflater, getLayoutId, container, false)
         mViewModel = ViewModelProvider(this, factory)[getViewModel]
+
+        // Set mDialog to get dialog from MainActivity
+        mDialog = (activity as MainActivity).mDialog
 
         // Observe tittle and set into toolbar when change
         title.observe(viewLifecycleOwner, Observer {

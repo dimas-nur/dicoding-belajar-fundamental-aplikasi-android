@@ -23,7 +23,7 @@ data class UserDetail(
     val html_url: String?,
     val id: Int,
     val location: String?,
-    val login: String?,
+    val login: String,
     val name: String?,
     val node_id: String?,
     val organizations_url: String?,

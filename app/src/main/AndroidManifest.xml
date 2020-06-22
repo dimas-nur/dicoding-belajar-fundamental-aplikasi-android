@@ -3,6 +3,12 @@
     package="com.dnar.dicodingsubmissionbfaa">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <permission
+        android:name="com.dnar.dicodingsubmissionbfaa.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.dnar.dicodingsubmissionbfaa.WRITE_DATABASE"
+        android:protectionLevel="normal" />
 
     <application
         android:name=".ui.base.BaseApplication"
@@ -20,6 +26,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".ui.widget.UserWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/user_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".ui.widget.UserWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <receiver android:name=".data.service.AlarmReceiver" />
+
+        <provider
+            android:name=".data.db.provider.UserContentProvider"
+            android:authorities="com.dnar.dicodingsubmissionbfaa"
+            android:exported="true"
+            android:readPermission="com.dnar.dicodingsubmissionbfaa.READ_DATABASE"
+            android:writePermission="com.dnar.dicodingsubmissionbfaa.WRITE_DATABASE" />
     </application>
 
 </manifest>

@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 // Home repository; Keyword : Repository
 class HomeRepository @Inject constructor(
-    val api: ApiHelper
+    private val api: ApiHelper
 ) {
 
     private val compositeDisposable = CompositeDisposable()
