@@ -13,7 +13,7 @@ Clone this repository and import into Android Studio
 ```    
 
 ## Demo    
-<h4 align="center"> Search Screen </h4>
+<h3 align="center"> Search Screen </h3>
 <p align="center">
     <img src="assets/app-search-waiting.png"
         alt="Search Screen Waiting"    
@@ -32,10 +32,9 @@ Clone this repository and import into Android Studio
         style="margin-right: 10px;"    
         width="200" />
 </p>
+ 
   
-<br>
-  
-<h4 align="center">Notification Reminder </h4>
+<h3 align="center">Notification Reminder </h3>
 <p align="center">
     <img src="assets/app-notification.png"
         alt="Notification"    
@@ -46,10 +45,9 @@ Clone this repository and import into Android Studio
         style="margin-right: 10px;"    
         width="200" />
 </p>
+ 
   
-<br>
-  
-<h4 align="center">Profile Screen </h4>
+<h3 align="center">Profile Screen </h3>
 <p align="center">
     <img src="assets/app-profile.png"
         alt="Profile Screen"    
@@ -68,10 +66,8 @@ Clone this repository and import into Android Studio
         style="margin-right: 10px;"    
         width="200" />
 </p>
-
-<br>
   
-<h4 align="center">Favorite Screen </h4>
+<h3 align="center">Favorite Screen </h3>
 <p align="center">
     <img src="assets/app-favorite.png"
         alt="Favorite Screen Empty"    
@@ -82,24 +78,20 @@ Clone this repository and import into Android Studio
         style="margin-right: 10px;"    
         width="200" />
 </p>
-
-<br>
   
-<h4 align="center">Setting Screen </h4>
+<h3 align="center">Setting Screen </h3>
 <p align="center">
     <img src="assets/app-setting.png"
         alt="Setting Screen"    
         style="margin-right: 10px;"    
         width="200" />
-    <img src="assets/search.gif?raw=true"
+    <img src="assets/setting.gif?raw=true"
         alt="Search Screen Action GIF"    
         style="margin-right: 10px;"    
         width="200" />
 </p>
-
-<br>
   
-<h4 align="center">Widget </h4>
+<h3 align="center">Widget </h3>
 <p align="center">
     <img src="assets/app-widget.png"
         alt="Widget Loaded"    
@@ -114,12 +106,10 @@ Clone this repository and import into Android Studio
         style="margin-right: 10px;"    
         width="200" />
 </p>
-
-<br>
   
-<h4 align="center">
+<h3 align="center">
   Consumer App
-</h4>
+</h3>
 <p align="center">
     <img src="assets/consumer-data-empty.png"
         alt="Consumer Screen Empty"    
@@ -143,7 +133,7 @@ Clone this repository and import into Android Studio
 - Using Glide for load and caching image from url
 - There is an explanatory comment on each function, making it easier to understand the flow of the application
     
-## Dependencies    
+## Dependencies :
 - [Lifecycle & Livedata](https://developer.android.com/jetpack/androidx/releases/lifecycle)
 - [Navigation Component](https://developer.android.com/jetpack/androidx/releases/navigation)
 - [Dagger 2](https://github.com/google/dagger)    
