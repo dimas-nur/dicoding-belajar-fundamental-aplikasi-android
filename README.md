@@ -11,6 +11,12 @@ Clone this repository and import into Android Studio
 ```
     https://github.com/dimas-nur/dicoding-bfaa.git
 ```    
+> **NOTE :**  This repository have 4 branch
+> 1. Master - consists of a combination of branches 1, 2 and 3
+> 2. Submission1 - contains tasks from submission 1 ( **Get 5 Star** )
+> 3. Submission2 - contains tasks from submission 2 ( **Get 5 Star** )
+> 4. Submission3 - contains tasks from submission 3 ( **Get 5 Star** )
+
 
 ## Demo    
 <h3 align="center"> Search Screen </h3>
